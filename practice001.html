@@ -8,23 +8,32 @@
 </head>
 
 <body>
-	<div id="test">要素取得用</div>
+	<div id="test">★要素取得用★</div>
 
 	<p>idから要素を取得する場合は、getElementById<br>
 		セレクタから要素を取得する場合は、querySelectorを使います</p>
+	<p>この下の「トップに戻る」にはaタグを設定していますが<br>
+		その要素を取得する場合のコードはどう書くでしょうか？</p>
 
-	<p>使い方は、検証→Elementsのbodyを確認してください。</p>
+	<p>使い方と答えは、検証→Elementsのbodyで確認してください。
+
+	</p>
 
 	<a href="index.html">トップに戻る</a>
 	<script>
 		// idから要素を取得する方法
 		let id = document.getElementById('test');
+
 		// セレクタから要素を取得する方法
 		let selector = document.querySelector('#test');
 
-		//結果は同じ
+		// aタグから要素を取得する方法
+		let a = document.querySelector('a');
+
+		//結果
 		console.log(id);
 		console.log(selector);
+		console.log(a)
 	</script>
 </body>
 
