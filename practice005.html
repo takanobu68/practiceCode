@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		input {
+			margin: 10px;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+
+<body>
+	<p>数値1と数値2の掛け算の答えが合計に出ます。</p>
+	<div id="app">
+		数値1
+		<input v-model="num1" type="number"><br>
+		数値2
+		<input v-model="num2" type="number"><br>
+		合計
+		<input type="number" id="sum" class="input" disabled v-bind:value="sum">
+	</div>
+	<a href="index.html">トップに戻る</a>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				num1: 1,
+				num2: 1,
+			},
+			computed: {
+				sum: function () {
+					return this.num1 * this.num2;
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
