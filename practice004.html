@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		input{
+			margin: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<p>数値1と数値2の掛け算の答えが合計に出ます。</p>
+	<div id="calc">
+		数値1
+		<input type="number" id="num1" value="1" class="input"><br>
+		数値2
+		<input type="number" id="num2" value="1" class="input"><br>
+		合計
+		<input type="number" id="sum" value="1" class="input" disabled>
+	</div>
+	<a href="index.html">トップに戻る</a>
+</body>
+
+<script src="../jquery-3.4.1.min.js"></script>
+<script>
+	// jQuery使用パターン
+	$(function () {
+		$('#num1,#num2').on('change', function () {
+			let a = $('#num1').val();
+			let b = $('#num2').val();
+			let sum = a * b;
+			$('#sum').val(sum);
+		})
+	})
+
+	// JS使用 パターン1
+	// 合計のinputタグにもイベントを設定してしまう→input#sumをdisabledにする
+
+	// let samples = document.getElementsByClassName('input');
+	// [...samples].forEach(sample => {
+	// 	sample.addEventListener('change', function () {
+	// 		let sum = document.getElementById('num1').value * document.getElementById('num2').value;
+	// 		document.getElementById('sum').value = sum;
+	// 	})
+	// })
+
+	// JS使用 パターン2
+	// 合計のinputタグにイベントを設定しないように、個別にイベントの設定をした
+
+	// let obj1 = document.querySelector('input');
+	// let obj2 = document.querySelector('input:nth-child(n+2)');
+	// obj1.addEventListener('change',function(){
+	// 	let sum = document.getElementById('num1').value * document.getElementById('num2').value;
+	// 	document.getElementById('sum').value = sum;
+	// });
+	// obj2.addEventListener('change',function(){
+	// 	let sum = document.getElementById('num1').value * document.getElementById('num2').value;
+	// 	document.getElementById('sum').value = sum;
+	// });
+
+	// JS使用パターン3
+	// 合計のinputタグにイベントを設定しないために、for文とbreakを使用
+
+	// let samples = document.getElementsByClassName('input');
+	// samples = [...samples];
+	// for (let i = 0; i < samples.length; i++) {
+	// 	if (i === 2) {
+	// 		break;
+	// 	}
+	// 	samples[i].addEventListener('change', function () {
+	// 		let sum = document.getElementById('num1').value * document.getElementById('num2').value;
+	// 		document.getElementById('sum').value = sum;
+	// 	});
+	// }
+
+</script>
+
+</html>
