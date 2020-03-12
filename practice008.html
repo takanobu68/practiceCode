@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="checkbox" name="check" id="cb">sample<br>
+	<p id="text">チェックが確認できません</p>
+	<a href="index.html">トップに戻る</a>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script>
+		// 単一のチェックボックスの取得方法 (3つ)
+		// let check = document.getElementById('cb');
+		// let check = document.querySelector('input');
+		let check = document.querySelector('#cb');
+		// 他にもget.ElementsByNameがあるが、返り値から
+		// checkedの取得を複雑にする為オススメできない。
+
+		let text = document.getElementById('text');
+
+		check.addEventListener('change', function () {
+			if (check.checked === true) {
+				text.textContent = 'チェックが確認されました';
+			} else if (check.checked === false) {
+				text.textContent = 'チェックが確認できません';
+			}
+		})
+
+		// jQuery使用時
+		// checkedの確認にはprop()メソッドを使う
+		// $(function(){
+		// 	$('#cb').on('change',function(){
+		// 		if($('#cb').prop('checked') === true){
+		// 			$('#text').text('チェックが確認されました');
+		// 		}else if($('#cb').prop('checked') === false){
+		// 			$('#text').text('チェックが確認できません');
+		// 		}
+		// 	})
+		// })
+	</script>
+</body>
+
+</html>
