@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="text" value="sample" id="text">
+	<p id="inputText"></p>
+	<a href="index.html">トップに戻る</a>
+</body>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></!-->
+<script>
+	// インプットの値を取得したい時(JavaScript使用)
+
+	// インプット要素の取得 変数や定数に入れなくてもよいし
+	// querySelector getElementById のどちらを使ってもよい
+	let text1 = document.querySelector('input');
+	// let text2 = document.getElementById('text');
+
+	// input要素が変化したときにというイベントをつける
+	text1.addEventListener('input', function () {
+		//pタグの中をインプットの値に書き換える
+		document.getElementById('inputText').textContent = text1.value;
+	})
+
+	//jQuery使用時の書き方
+
+	// $(function(){
+	// 	$('input').on('change',function(){
+	// 		let inputText = $('input').val()
+	// 		$('#inputText').text(inputText);
+	// 	});
+	// });
+
+</script>
+
+</html>
