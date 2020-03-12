@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="checkbox" id="cb">チェックするとボタンが押せます<br>
+	<button id="btn" disabled>チェックしてください</button><br>
+	<a href="index.html">トップに戻る</a>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		// propの基本
+		// prop(属性) 取得
+		// prop(属性,値) 値の設定
+
+		// prop('checked')でチェックがされているかどうか
+		// true-> されている false-> されていない
+		// prop('disabled',false)でボタンの有効無効を切り替える
+
+		$(function () {
+			$('#cb').on('change', function () {
+				if ($('#cb').prop('checked') === true) {
+					$('#btn').prop('disabled', false);
+				} else if ($('#cb').prop('checked') === false) {
+					$('#btn').prop('disabled', true);
+				};
+			});
+		});
+	</script>
+</body>
+
+</html>
