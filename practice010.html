@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>textareaの値の取得、書き換え</title>
+	<style>
+		textarea {
+			width: 200px;
+			height: 200px;
+		}
+
+		p {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+
+	<p><label for="inputText">自由記入欄</label></p>
+	<textarea name="" id="inputText1"></textarea>
+
+	<p>記入確認欄</p>
+	<textarea name="" id="inputText2" disabled></textarea>
+
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+
+		// // JavaScript使用
+		let textArea1 = document.getElementById('inputText1');
+		console.log(textArea1); // どんな値が得られているか確認
+		console.log(textArea1.value);// どんな値が得られているか確認
+
+		// イベント inputの動作を確認する
+		textArea1.addEventListener('input',function(){
+			// テキストエリアのvalue値の書き換え
+			// inputText2.valueの値をinputText1.valueの値に書き換える
+			document.getElementById('inputText2').value = textArea1.value;
+		})
+
+		// jQuery使用時
+		// $(function () {
+		// 	$('#inputText1').on('input',function(){
+		// 		$('#inputText2').text($('#inputText1').val());
+		// 	})
+		// })
+
+	</script>
+</body>
+
+</html>
