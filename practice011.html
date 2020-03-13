@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ラジオボタンの値の取得</title>
+</head>
+
+<body>
+
+	<form id="radioGroup">
+		<label><input type="radio" name="fruit" value="リンゴ">リンゴ</label>
+		<label><input type="radio" name="fruit" value="バナナ">バナナ</label>
+		<label><input type="radio" name="fruit" value="みかん">みかん</label>
+		<p id="select">選択されていません</p>
+	</form>
+
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		// JavaScript使用
+		let radio = document.querySelector('#radioGroup');
+
+		// ラジオボタンの値を変更したとき
+		// 選択したものが表示されるイベントの設定
+		radio.addEventListener('change', function () {
+			let fruitvalue = radio.fruit.value;
+			document.getElementById('select').textContent = `選択したのは${fruitvalue}です`;
+		})
+
+		//jQuery使用
+		// $(function(){
+		// $('#radioGroup').on('change',function(){
+		// 	$('#select').text(`選択したのは${$('input[name="fruit"]:checked').val()}です`);
+		// })
+		// });
+	</script>
+</body>
+
+</html>
