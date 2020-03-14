@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="password" id="pw"><br>
+	<input type="checkbox" id="cb">属性の変更
+	<p>チェック時はtext、チェックしていなければpassword</p>
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		// 変えたいinput要素の取得
+		let pwel = document.getElementById('pw');
+		// 変えたいinput要素のtype属性の取得
+		let inputType = pwel.getAttribute('type');
+		// チェックボックスの要素取得
+		let cb = document.getElementById('cb');
+
+		// チェックボックスにchangeイベントの設定
+		cb.addEventListener('change', function () {
+			// チェックボックスがチェックされているかの確認
+			let bd = cb.checked;
+
+			if (bd == true) { //チェックされていたら
+				// type属性をtextに変更
+				pwel.setAttribute('type', 'text')
+			} else if (bd == false) { // チェックされていなければ
+				// type属性をpasswordに変更
+				pwel.setAttribute('type', 'password');
+			};
+		});
+
+		// jQuery使用
+		// $(function () {
+		// 	$('#cb').on('change', function () {
+		// 		let $cb = $('#cb').prop('checked');
+		// 		if ($cb === true) {
+		// 			$('#pw').attr('type', 'text');
+		// 		} else if ($cb === false) {
+		// 			$('#pw').attr('type', 'password');
+		// 		}
+		// 	});
+		// });
+
+	</script>
+</body>
+
+</html>
