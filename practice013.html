@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 150px;
+			height: 150px;
+			background-color: blue;
+			margin: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box"></div>
+	<button id="btn">色を変える</button>
+	<button id="btn2">今の色を表示</button>
+	<p id="p"></p>
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+
+		let btn = document.getElementById('btn');
+		let btn2 = document.getElementById('btn2');
+		let box = document.querySelector('.box');
+		let p = document.getElementById('p');
+
+		btn.addEventListener('click',function(){
+			box.style.backgroundColor = 'red';
+		});
+
+		btn2.addEventListener('click',function(){
+			let color = getComputedStyle(box).backgroundColor;
+			let bgColor;
+			if(color == 'rgb(255, 0, 0)'){
+				bgColor = '赤';
+			}else if(color == 'rgb(0, 0, 255)'){
+				bgColor = '青';
+			}
+			p.textContent = `今の色は${bgColor}です`;
+		});
+
+		// $(function () {
+		// 	$('#btn').on('click', function () {
+		// 		$('.box').css('backgroundColor', 'red');
+		// 	});
+
+		// 	$('#btn2').on('click', function () {
+		// 		let $color = $('.box').css('backgroundColor');
+		// 		let bgColor = '';
+
+		// 		if ($color === 'rgb(255, 0, 0)') {
+		// 			bgColor = '赤';
+		// 		} else if ($color === 'rgb(0, 0, 255)') {
+		// 			bgColor = '青';
+		// 		}
+		// 		$('#p').text(`今の色は${bgColor}です`);
+		// 	});
+		// });
+
+	</script>
+</body>
+
+</html>
