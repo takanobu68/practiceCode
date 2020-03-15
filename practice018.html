@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ボタンクリック時にラジオボタンがチェックされているか確認</title>
+</head>
+
+<body>
+	<form id="form" name="form">
+		<p>好きなフルーツを選んでください</p>
+		<input type="radio" name="fruit" class="fruit" value="リンゴ">リンゴ
+		<input type="radio" name="fruit" class="fruit" value="バナナ">バナナ
+		<input type="radio" name="fruit" class="fruit" value="みかん">みかん
+
+		<p id="text"></p>
+	</form>
+	<button id="btn">確認する</button>
+	<a href="index.html">トップに戻る</a>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script>
+		let fruits = document.getElementsByName('fruit');
+		let btn = document.getElementById('btn');
+		let text = document.getElementById('text');
+
+		btn.addEventListener('click', function () {
+			for (let i = 0; i < fruits.length; i++) {
+				if (fruits[i].checked) {
+					let choice = fruits[i].value;
+					text.textContent = `選択したのは${choice}です`;
+					break;
+				}
+				text.textContent = "選択されていません";
+			}
+		})
+
+		// $(function () {
+		// 	console.log($('input[name=fruit]:checked'));
+		// 	$('#btn').on('click', function () {
+		// 		let $fruit = $('input[name=fruit]:checked').val();
+		// 		$('#text').text(`選択したのは${$fruit}です`);
+		// 		if ($fruit === undefined) {
+		// 			$('#text').text('選択されていません');
+		// 		};
+		// 	});
+		// });
+
+	</script>
+</body>
+
+</html>
