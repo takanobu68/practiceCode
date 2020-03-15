@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ラジオボタンのエラー確認</title>
+</head>
+
+<body>
+	<form id="form" name="form">
+		<p>好きなフルーツを選んでください</p>
+		<input type="radio" name="fruits" class="fruit" value="リンゴ">リンゴ
+		<input type="radio" name="fruits" class="fruit" value="バナナ">バナナ
+		<input type="radio" name="fruits" class="fruit" value="みかん">みかん
+
+		<p id="text"></p>
+	</form>
+	<button id="btn">チェックの確認</button>
+	<a href="index.html">トップに戻る</a>
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></!-->
+	<script>
+		let fruits = document.getElementsByName('fruits');
+		let btn = document.getElementById('btn');
+		let text = document.getElementById('text');
+		let flg = '';
+
+		btn.addEventListener('click', function () {
+			flg = confirm();
+			if(flg){
+				alert('確認出来ました');
+			}else if(flg === false){
+				alert('確認出来ません');
+			}
+		});
+
+		function confirm() {
+			for (let i = 0; i < fruits.length; i++) {
+				if (fruits[i].checked) {
+					return true;
+				};
+			};
+			return false;
+		};
+
+		// $(function () {
+		// 	$('#btn').on('click', function () {
+		// 		let flg = confirm();
+		// 		if (flg) {
+		// 			alert('確認出来ました');
+		// 		} else if (flg === false) {
+		// 			alert('確認出来ません');
+		// 		}
+		// 	});
+
+		// 	function confirm(){
+		// 		let $fruit = $('input[name=fruits]:checked').val();
+		// 		if($fruit === undefined){
+		// 			return false;
+		// 		}
+		// 		return true;
+		// 	}
+		// });
+
+	</script>
+</body>
+
+</html>
