@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<label for="text">氏名
+		<input type="text" id="text">
+	</label><br>
+	<label for="textarea">問い合わせ内容<br>
+		<textarea name="" id="textarea"></textarea>
+	</label><br>
+	<button id="btn">確認</button>
+	<a href="index.html">トップに戻る</a>
+
+
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script>
+			let text = document.getElementById('text');
+			let textArea = document.getElementById('textarea');
+			let btn = document.getElementById('btn');
+
+			btn.addEventListener('click',function(){
+				if(text.value === ''){
+					alert('氏名が入力されていません');
+				}
+
+				if(textArea.value === ''){
+					alert('問い合わせ内容を入力してください')
+				}
+				alert('入力が確認されました');
+			})
+
+			// $(function(){
+			// 	$('#btn').on('click',function(){
+			// 		if($('#text').val() === ''){
+			// 			alert('氏名が入力されていません');
+			// 		}
+			// 		if($('#textarea').val() === ''){
+			// 			alert('問い合わせ内容を入力してください')
+			// 		}
+			// 		alert('入力が確認されました');
+			// 	});
+			// });
+
+	</script>
+</body>
+
+</html>
