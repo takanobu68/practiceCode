@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">ボタン</button>
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click',function(){
+			alert('ボタンをクリックしました');
+		})
+
+		// $('#btn').on('click',function(){
+		// 	alert('ボタンをクリックしました');
+		// })
+	</script>
+</body>
+</html>
