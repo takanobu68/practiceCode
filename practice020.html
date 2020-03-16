@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>クラス属性をキーに要素を取得する</title>
+</head>
+
+<body>
+	<ul>
+		<li class="sample sample2">サンプル1</li>
+		<li class="sample">サンプル2</li>
+		<li class="sample">サンプル3</li>
+		<li class="sample">サンプル4</li>
+		<li class="sample">サンプル5</li>
+	</ul>
+	<a href="index.html">トップに戻る</a>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script>
+		// クラス属性で要素を取得、戻り値は要素の配列形式
+		let li = document.getElementsByClassName('sample');
+		// 複数のクラスを列記した場合、双方が指定されている要素だけを取得する、戻り値は配列
+		let li2 = document.getElementsByClassName('sample sample2');
+
+		// liに取得している要素をコンソールに表示
+		for (let i = 0; i < li.length; i++) {
+			console.log(li[i].textContent);
+		}
+
+		// クラス属性の取得、jQuery使用
+		// $(function () {
+		// 	// サンプル1が表示される セレクタでの指定に注意
+		// 	console.log($('.sample:first-child').text());
+
+		// 	// JSの場合はforを使うが、jQueryではeachを使う
+		// 	$('.sample').each(function(index,element){
+		// 		console.log($(element).text());
+		// 	})
+
+		// })
+	</script>
+</body>
+
+</html>
