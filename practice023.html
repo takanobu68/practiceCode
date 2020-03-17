@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>クラス属性の追加と削除</title>
+	<style>
+		.red {
+			color: red;
+		}
+
+		.big{
+			font-size: 48px;
+		}
+
+		button {
+			margin: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 id="h1">文字色を変える</h1>
+	<button id="btn1">文字が赤くなるクラスを付ける</button><br>
+	<button id="btn2">文字が赤くなるクラスを削除</button>
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+
+		// setattributeでクラス属性の追加と削除が出来る（複数も可）
+		// classList.addで追加
+		// classList.remove削除
+
+		let h1 = document.getElementById('h1');
+		let btn1 = document.getElementById('btn1');
+		let btn2 = document.getElementById('btn2');
+
+		btn1.addEventListener('click',function(){
+			h1.classList.add('red','big');
+			// h1.setAttribute('class','red big');
+		});
+
+		btn2.addEventListener('click',function(){
+			h1.classList.remove('red','big');
+			// h1.setAttribute('class','');
+		});
+
+		// jQuery使用時
+		// attrでクラス属性の追加と削除が出来る（複数も可）
+		// addClassで追加
+		// removeClassで削除
+
+		// $(function(){
+		// 	$('#btn1').on('click',function(){
+		// 		// $('#h1').addClass('red big');
+		// 		$('#h1').attr('class','red big');
+		// 	});
+
+		// 	$('#btn2').on('click',function(){
+		// 		$('#h1').removeClass('red');
+		// 		// $('#h1').attr('class','');
+		// 	});
+		// })
+	</script>
+
+</body>
+
+</html>
