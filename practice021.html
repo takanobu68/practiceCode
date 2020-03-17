@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>replaceの使い方</title>
+</head>
+<body>
+	<p id="text">鈴木 一郎</p>
+	<a href="index.html">トップに戻る</a>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+	// pタグのテキスト部分を取得
+	let text = document.getElementById('text').textContent;
+	// テキストが取れているか確認
+	console.log(text);
+	// 一郎を次郎に置き換える replace使用
+	text = text.replace('一郎','次郎');
+	// 変更できているか確認
+	console.log(text);
+
+	// スペースの削除
+	// /.../ ...の部分に検索文字列を入れる
+	// 「\s+」で全角・半角の文字列を指定
+	// gオプションで空文字に置き換え
+	text = text.replace(/\s+/g,'');
+
+	// 削除の確認
+	console.log(text);
+
+	$(function(){
+		// テキストの取得、置換
+		let $text = $('#text').text().replace('一郎','次郎');
+		// 書き換えの確認
+		console.log($text);
+		// スペースの削除
+		$text = $text.replace(/\s+/g,'');
+		// 確認
+		console.log($text);
+	})
+</script>
+</html>
