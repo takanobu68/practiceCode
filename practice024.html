@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>同じクラスを複数の要素に付ける方法</title>
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>リスト1</li>
+		<li>リスト2</li>
+		<li>リスト3</li>
+		<li>リスト4</li>
+	</ul>
+	<button id="btn">全ての文字に色を付ける</button>
+	<a href="index.html">トップに戻る</a>
+
+	<script>
+		let li = document.querySelectorAll('li');
+		let btn = document.getElementById('btn');
+
+		btn.addEventListener('click', function () {
+			// forを使用
+			for (let i = 0; i < li.length; i++) {
+				// リスト1にだけ色を付けない方法
+				// if (i === 1) {
+				// 	continue;
+				// }
+				li[i].classList.add('red');
+			}
+
+			// // for of を使用
+			// for(const CL of li){
+			// 	CL.classList.add('red');
+			// }
+
+			// // forEach使用
+			// li.forEach(function(el) {
+			// 	el.classList.add('red');
+			// })
+
+		});
+
+	</script>
+</body>
+
+</html>
