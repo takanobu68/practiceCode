@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>setTimeoutの使い方</title>
+</head>
+
+<body>
+	<h1 id="fade-in" style="display: none;">よくできました</h1>
+	<button id="btn">クリックしたら、2秒後に文字が出ます</button>
+	<a href="index.html">トップに戻る</a>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script>
+		// setTimeoutは指定された時間が経過したところで1回だけ処理をする
+		let btn = document.getElementById('btn');
+		let p = document.getElementById('fade-in');
+
+		btn.addEventListener('click', function () {
+			setTimeout(function () {
+				p.style.display = 'block';
+			}, 2000);
+		});
+
+	// $(function(){
+	// 	$('#btn').on('click',function(){
+	// 		setTimeout(function(){
+	// 			$('#fade-in').css('display','block');
+	// 			// 徐々に表示させたい場合
+	// 			// $('#fade-in').fadeIn();
+	// 		},2000);
+	// 	});
+	// });
+	</script>
+</body>
+
+</html>
