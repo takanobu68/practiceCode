@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>クラスの切り替え</title>
+	<style>
+		.mouse-move{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="h1">色が変わります</h1>
+	<button id="btn">ここでも色を変えられます</button>
+	<a href="index.html">トップに戻る</a>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+	<script>
+
+		// JS classの切り替えは classList.toggleで行う
+		// 要素にクラスが存在しているかどうかの確認はcontainsで行う
+		// 返り値は真偽値(true or false)
+		let h1 = document.getElementById('h1');
+		let btn = document.getElementById('btn');
+
+		h1.addEventListener('mouseover',function(){
+			h1.classList.toggle('mouse-move');
+			// h1.classList.add('mouse-move');
+		});
+
+		h1.addEventListener('mouseout',function(){
+			h1.classList.toggle('mouse-move');
+			// h1.classList.remove('mouse-move');
+		});
+
+		btn.addEventListener('click',function(){
+			// h1.classList.toggle('mouse-move');
+			if(h1.classList.contains('mouse-move')){
+				h1.classList.remove('mouse-move');
+			}else{
+				h1.classList.add('mouse-move');
+			}
+		});
+
+		// jQuery使用時は classの切り替えはtoggleClassで行う
+		// クラスがあるかどうかはhasClassを使用する
+		// これも返り値は真偽値
+
+		// $(function(){
+		// 	$('#h1').on('mouseover',function(){
+		// 		$('#h1').toggleClass('mouse-move');
+		// 	});
+
+		// 	$('#h1').on('mouseout',function(){
+		// 		$('#h1').toggleClass('mouse-move');
+		// 	});
+
+		// 	// $('#btn').on('click',function(){
+		// 	// 	$('#h1').toggleClass('mouse-move');
+		// 	// })
+
+		// 		$('#btn').on('click',function(){
+		// 			if($('#h1').hasClass('mouse-move')){
+		// 				$('#h1').removeClass('mouse-move');
+		// 			}else{
+		// 				$('#h1').addClass('mouse-move');
+		// 			}
+		// 		});
+
+		// })
+	</script>
+</body>
+</html>
