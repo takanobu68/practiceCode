@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>要素の生成、編集、表示</title>
+	<style>
+		/* .red-box {
+			width: 150px;
+			height: 150px;
+			background-color: red;
+			margin: 10px;
+		} */
+
+		#mark{
+			font-size: 36px;
+			margin: 0;
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<button id="btn">要素を作る</button>
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+
+			function create(){
+			// button要素の後にclass='red-box'が付いたdiv要素を作る
+			$('#btn').after($('<div>',{class:'red-box'}));
+			// 作ったdiv要素の中にpタグを付けた★を追加
+				$('.red-box').html('<p id="mark">★</p>')
+				// styleの追加
+				.css({
+					width : '150px',
+					height : '150px',
+					backgroundColor:'red',
+					margin : '10px'
+				})
+				// イベントの追加
+				.on('click',function(){
+					alert('★を押すと消えます');
+				});
+
+				// ★を押すと要素の削除をするイベントの設定
+				// removeは子要素も含めての削除となる事と
+				// 削除した要素を戻り値として受け取れる事は覚えておく
+				$('#mark').on('click',function(){
+					let $div = $('div').remove();
+					console.log($div);
+				})
+			};
+
+			$('#btn').on('click',create);
+
+		})
+
+	</script>
+</body>
+
+</html>
