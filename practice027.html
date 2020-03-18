@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>要素の生成、編集、表示</title>
+	<style>
+		.red-box {
+			width: 150px;
+			height: 150px;
+			background-color: red;
+			margin: 10px;
+		}
+
+		#mark{
+			font-size: 36px;
+			margin: 0;
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="index.html">トップに戻る</a>
+
+	<button id="btn">要素を作る</button>
+
+	<script>
+
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click', create);
+
+		function create() {
+			// div要素の生成
+			const element = document.createElement('div');
+			// class属性の付与 2パターン
+			// element.setAttribute('class', 'red-box');
+			element.classList.add('red-box');
+			// テキストの配置
+			element.innerHTML = '<p id="mark">★</p>';
+			// 作った要素の配置
+			btn.after(element);
+
+			// 作った要素の星マークに親要素を削除するイベントを付与
+			let del = document.querySelector('.red-box');
+			let delmark = document.getElementById('mark');
+			delmark.addEventListener('click',function(){
+				del.remove();
+			})
+		}
+
+
+	</script>
+</body>
+
+</html>
