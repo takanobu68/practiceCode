@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>予定表(jQueryでの作成)</title>
+	<style>
+		li {
+			list-style: none;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="index.html">トップに戻る</a><br>
+	予定<input type="text"><br>
+	<div><label for="textarea">予定の内容</label></div>
+	<textarea name="textarea" id="" cols="30" rows="10"></textarea><br>
+	<button id="btn">予定の追加</button>
+	<button id="btn2">予定の削除</button>
+	<ul id="target">
+
+	</ul>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function () {
+
+			function newplans() {
+				let flg = '';
+				$text = $('input[type="text"]').val();
+				console.log($text);
+				$textarea = $('textarea').val();
+				console.log($textarea);
+				if ($text === '') {
+					flg = false;
+					alert('予定が入力されていません');
+				} else if ($textarea === '') {
+					flg = false;
+					alert('内容が入力されていません');
+				}
+				if (flg === false) {
+					return;
+				}
+
+				// jQueryでの要素の作成が今(2020.3.19)は苦手
+				let $list = $('<li>', { "class": "plan" });
+				$list = $list.html(`<h3>${$text}</h3><p>${$textarea}</p><input type="checkbox">この予定の削除`);
+				$('#target').append($list);
+			};
+
+			$('#btn').on('click', newplans);
+
+			$('#btn2').on('click', function () {
+				// checkboxにチェックが付いているものの親を要素を取得する
+				let $test = $('input[type="checkbox"]:checked').parent();
+				// 要素の削除
+				$test.remove();
+			})
+		});
+	</script>
+</body>
+
+</html>
