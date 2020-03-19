@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>要素内のHTMLを取得する方法</title>
+</head>
+
+<body>
+	<div id="outer">
+		<h1>題名</h1>
+		<p>テキスト</p>
+	</div>
+	<a href="index.html">トップに戻る</a>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		// // 指定した要素も含んでのHTML要素の取得
+		// let outer1 = document.getElementById('outer').outerHTML;
+		// // 結果を確認
+		// console.log(outer1);
+		// // 取得した要素の中での絞り込みはできない。（2020.3.19時点では）
+		// // console.log(outer1.querySelector('p'));
+		// // 取得した要素の書き換え
+		// 要素の書き換えはテンプレートリテラルを使った方が若干見やすい
+		// let outer2 = document.getElementById('outer').outerHTML =
+		// 	`<p>書き換え</p><span>テスト</span>
+		// 	<div>成功</div>`;
+		// // 結果の確認
+		// console.log(outer2);
+
+		// // 指定した要素を含まずにHTML要素の取得
+		// let inner1 = document.getElementById('outer').innerHTML;
+		// // 結果の確認
+		// console.log(inner1);
+		// // 取得した要素の書き換え
+		// let inner2 = document.getElementById('outer').innerHTML = `<p>書き換え成功</p>`
+		// // 結果の確認
+		// console.log(inner2);
+
+		// jQuery使用
+		$(function(){
+
+			// 指定した要素も含んでのHTML要素の取得
+			// let $outer = $('#outer').prop('outerHTML');
+
+			// 結果の確認
+			// console.log($outer);
+
+			// 取得したHTML要素の中から取り出す方法が見つからない
+			// $outer.$('p'); これは失敗
+
+			// 指定した要素も含んでのHTML要素の書き換え
+			// let outer1 = $('#outer').prop('outerHTML',
+			// `<p>要素の</p>
+			// <p>書き換え成功</p>
+			// `);
+
+			// 指定した要素を含まずにHTML要素の取得
+			console.log($('#outer').html());
+
+			// 指定した要素を含まずにHTML要素の書き換え
+			console.log($('#outer').html('<p>書き換え成功</p>'));
+		})
+	</script>
+</body>
+
+</html>
