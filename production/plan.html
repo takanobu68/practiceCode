@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>予定表</title>
+	<style>
+		li{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<a href="index.html">トップに戻る</a><br>
+	予定<input type="text"><br>
+	<div><label for="textarea">予定の内容</label></div>
+	<textarea name="textarea" id="" cols="30" rows="10" ></textarea><br>
+	<button id="btn">予定の追加</button>
+	<button id="btn2">予定の削除</button>
+	<ul id="target">
+
+	</ul>
+
+	<script>
+
+		function newplans(){
+		// 空白時のエラーチェックに必要な変数
+		let flg = '';
+		// 予定の入力欄、input[type="text"]のvalue値の取得
+		let title = document.querySelector('input[type="text"]').value;
+		// 値が取れているか確認
+		console.log(title);
+		// 予定内容の入力欄、textareaのvalue値の取得
+		let details = document.querySelector('textarea').value;
+		// 値が取れているかの確認
+		console.log(details);
+		// 空白時の処理
+		if(title === ''){
+			flg = false;
+			alert('予定を入力してください');
+		}else if(details === ''){
+			flg = false;
+			alert('予定内容を入力してください');
+		}else{
+			flg = true;
+		};
+		// 空白時にはflgにfalseが代入されているので、処理を終了
+		if(flg === false){
+			return;
+		};
+		// <li>を挿入予定の場所の目印要素を取得
+		let target = document.getElementById('target');
+		// 挿入要素の取得 まずはliタグ
+		let list = document.createElement('li');
+		// liタグにクラス付与 削除する時に使用
+		list.classList.add('plan');
+		// 要素生成の途中経過確認
+		console.log(list);
+		// liタグの中身をinnerHTMLで生成
+		list.innerHTML = `<h3>${title}</h3><p>${details}</p><input type="checkbox">この予定の削除`;
+		// 出来ているかの確認
+		console.log(list);
+		// 目印にしたul要素の末尾に要素の追加する
+		target.appendChild(list);
+		}
+
+		// 予定の追加ボタンにクリックイベントを付与
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click',newplans);
+
+
+		let btn2 = document.getElementById('btn2');
+		//  予定の削除イベントを作る
+		btn2.addEventListener('click',function(){
+			// チェックボックス要素を取得、複数に対応するためにquerySelectorAllを使用
+			let checks = document.querySelectorAll('input[type="checkbox"]');
+			// 要素を受け取れているかの確認
+			console.log(checks);
+			// querySelectorAllで受け取っているため、配列になる
+			// 配列からチェックされているものを取得
+			// 削除したいのは、liタグなのでチェックされているinputから見て親の要素(<li>)を取得
+			// liタグを削除、親要素を消せば中の子要素を消える
+			for(let i = 0;i<checks.length;i++){
+				if(checks[i].checked === true){
+					let del = checks[i].parentNode;
+					del.remove();
+				}
+			}
+		})
+	</script>
+</body>
+</html>
