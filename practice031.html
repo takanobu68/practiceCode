@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="target">idで要素を取得</div>
+	<ul>
+		<li class="li">テキスト1</li>
+		<li class="li">テキスト2</li>
+		<li class="li">テキスト3</li>
+		<li class="li">テキスト4</li>
+	</ul>
+	<p class="p"><strong>ここの要素を取得する</strong></p>
+	<p class="p"></p>
+	nameから要素の取得
+	<input type="text" name="text" id=""><br>
+
+	<a href="index.html">トップに戻る</a>
+	<script>
+		// どうゆう形で取得しているかを確認するのが大事
+		let id = document.getElementById('target');
+		console.log(id);
+		let sel = document.querySelector('li');
+		console.log(sel);
+		let sel1 = document.querySelectorAll('li');
+		console.log(sel1);
+		let cl = document.getElementsByClassName('p');
+		console.log(cl);
+		let tag = document.getElementsByTagName('strong');
+		console.log(tag);
+		let name = document.getElementsByName('text');
+		console.log(name);
+	</script>
+</body>
+
+</html>
