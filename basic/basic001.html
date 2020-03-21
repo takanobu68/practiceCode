@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>定数に関して</title>
+</head>
+
+<body>
+	<a href="index.html">トップに戻る</a><br>
+	<script>
+		const el = 'element';
+		// 単純な値を代入した場合、変更は不可
+		// 以下の2パターンはエラーが出る
+		// el = 'el';
+		// const el = 'el';
+
+		const array = [1, 2, 3, 4, 5];
+		// 配列の場合、配列自体の書き換えは不可能だが、
+		// 個々への再代入は可能
+		// array = [6,7,8,9,10];
+		// array[0] = 11;
+		// console.log(array);
+
+		// そうすると、for等を使った場合全部の書き換えが可能となってしまう。良いのか？
+		// 試した結果、可能だった。
+		// for(let i = 0;i < array.length; i++){
+		// 	array[i] = i+1;
+		// }
+		// console.log(array);
+
+		// forEachでも可能だった
+		array.forEach((value, index) => {
+			array[index] = index;
+		});
+		console.log(array);
+
+		// 同じように、オブジェクトの中身が可能かどうかの検証
+		// 結果は可能だった。
+
+		const obj = {
+			data: 1
+		}
+		obj.data = 2;
+		console.log(obj);
+
+		// 再定義は不可能
+		// const obj= {
+		// 	num : 1
+		// }
+
+	</script>
+</body>
+
+</html>
