@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>windowsizeの取得方法</title>
+
+</head>
+
+<body>
+	<p id="width"></p>
+	<p id="height"></p>
+	<a href="index.html">トップに戻る</a>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		let w = document.getElementById('width');
+		let h = document.getElementById('height');
+
+		window.addEventListener('resize', function () {
+			w.textContent = window.innerWidth;
+			h.textContent = window.innerHeight;
+		});
+
+		// $(function(){
+		// 	$(window).on('resize',function(){
+		// 		$('#width').text($(window).width());
+		// 		$('#height').text($(window).height());
+		// 	});
+		// })
+	</script>
+</body>
+
+</html>
