@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>要素の順番を取得</title>
+	<style>
+		li{
+			width: 10px;
+		}
+	</style>
+</head>
+<body>
+<p>1+1は？</p>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+
+<a href="index.html">トップに戻る</a>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+	$(function(){
+
+		$('li').on('click',function(){
+			//「変数 ＝ $('li').index(this);」でクリックした要素の順番を取得できる
+			//「変数= $(this).index();」でも同じ結果を得られる
+			let $click = $(this).index();
+			if($click === 1){
+				alert('正解です');
+			}else{
+				alert('不正解です');
+			}
+		})
+	})
+
+</script>
+</body>
+</html>
