@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTMLCollectionに関して</title>
+</head>
+
+<body>
+	<ul>
+		<li name="name">1</li>
+		<li>2</li>
+		<li class="clnamed">3</li>
+		<li>4</li>
+		<li id="idnamed">5</li>
+	</ul>
+
+	<div class="cl"></div>
+	<div class="cl"></div>
+	<!-- <div class="cl"></div> -->
+	<!-- この上部分のコメントを外すと、34,35行目の戻り値が変わる -->
+	<!-- HTMLCollection は要素数に変化があれば増減後の要素になる為 -->
+
+	<a href="index.html">トップに戻る</a>
+	<script>
+		let html = document.getElementsByTagName('li');
+		// HTMLCollectionでの戻り値を確認
+
+		// 以下が出来る事で覚えておいてほうが良さそうな事
+		console.log(html);
+		console.log(html.length); // 配列の長さの取得
+		console.log(html[2]); // 個別の要素の取得
+		console.log(html.namedItem('clnamed')); // クラス名からの取得は不可
+		console.log(html.namedItem('idnamed')); // id名からの取得は可能
+		console.log(html.namedItem('name')); // nameからの取得も可能
+
+
+		let cl = document.getElementsByClassName('cl');
+		// HTMLCollectionので戻り値を確認
+		console.log(cl);
+		console.log(cl.length);
+
+		// forは使えるが、forEachは使えない
+		// 下記はforの例文
+
+		for (let i = 0; i < html.length; i++) {
+			// 偶数番目の文字色を赤くする
+			if((i+1)%2 === 0){
+				html[i].style.color = 'red';
+			}
+		}
+
+	</script>
+</body>
+
+</html>
