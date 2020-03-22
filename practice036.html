@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>クラス名の取得方法</title>
+</head>
+
+<body>
+
+	<div id="color">Test</div>
+
+	<ul>
+		<li class="red">赤</li>
+		<li class="blue">青</li>
+		<li class="red">赤</li>
+		<li class="blue">青</li>
+		<li class="red">赤</li>
+	</ul>
+	<a href="index.html">トップに戻る</a>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		// // 取得した要素が単数の場合
+		// let div = document.getElementById('color');
+		// // クラス名の取得(設定していない場合は空白が返ってくる。nullではない)
+		// console.log(div.className);
+		// // クラスの設定
+		// div.className = 'fontBig';
+		// // 設定できているかの確認
+		// console.log(div.className);
+		// // 複数のクラス設定
+		// div.className = 'fontBig colorChange';
+		// // 確認
+		// console.log(div.className);
+		// // fontBig colorChangeを持っていたらCSSを付与するという条件文で
+		// // クラスが付与されているか確認する
+		// if (div.classList.contains('fontBig', 'colorChange')) {
+		// 	div.style.fontSize = '48px';
+		// 	div.style.color = 'blue';
+		// };
+
+		// // 取得した要素が複数の場合
+		// let li = document.getElementsByTagName('li');
+		// // どんな形で戻ってきているか確認(HTMLCollectionでの戻り値)
+		// console.log(li);
+		// // この取得方法は×
+		// console.log(li.className);
+		// // 個別の要素を取得しクラス名の確認
+		// console.log(li[1].className);
+		// // liタグが何個あるかの確認
+		// console.log(li.length);
+		// // 取得したliタグ全てにイベントの設定
+		// // クリックした時にクラス名に応じて文字色を変える
+		// for (let i = 0; i < li.length; i++) {
+		// 	li[i].addEventListener('click', function () {
+		// 		if (li[i].className === 'red') {
+		// 			li[i].style.color = 'red';
+		// 		} else if (li[i].className === 'blue') {
+		// 			li[i].style.color = 'blue';
+		// 		}
+		// 	})
+		// };
+
+		$(function () {
+			// クラス名の取得 単数
+			// 取得した要素のクラス名が無い場合は、undefinedで戻ってくる
+			console.log($('#color').attr('class'));
+			// クラスの付与
+			// 複数設定は半角スペースで区切る
+			$('div').attr('class', 'fontBig colorChange');
+			console.log($('div').attr('class'));
+			// classList.containsと違い複数も半角スペース区切りで良い
+			if ($('#color').hasClass('fontBig colorChange')) {
+				$('#color').css({
+					color: 'red',
+					fontSize: '48px'
+				});
+			}
+			// 複数への要素の指定はjQueryの場合はeachを使う
+			// クラス名に応じて文字色の変化
+			$('li').each(function (index, el) {
+				console.log($(el).attr('class'));
+				$('li').on('click', function () {
+					if ($(this).attr('class') === 'red') {
+						$(this).css('color', 'red');
+					} else if ($(this).attr('class') === 'blue') {
+						$(this).css('color', 'blue');
+					};
+				});
+			});
+		})
+
+
+	</script>
+</body>
+
+</html>
