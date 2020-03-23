@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hasArrtibuteとhasAttributesの違い</title>
+</head>
+
+<body>
+	<p id="target" class="p">1</p>
+	<p class="p">2</p>
+	<p>3</p>
+	<p class="p">4</p>
+
+	<div></div>
+	<a href="index.html">トップに戻る</a>
+	<script>
+		// hasArrtibuteは指定した属性を持っているかの確認をする
+		let p = document.getElementById('target');
+		// 指定した属性を持っていればtrueを返す
+		let attr = p.hasAttribute('class');
+		console.log(attr);
+		// 持っていなければfalseを返す
+		let attr1 = p.hasAttribute('href');
+		console.log(attr1);
+
+		// hasAttributesは何らかの属性を持っているかの確認をする
+		let p1 = document.getElementById('target');
+		// 何かしらの属性があればtrue
+		let attr2 = p1.hasAttributes();
+		console.log(attr2);
+		// 持っていなければ、falseを返す
+		let div = document.getElementsByTagName('div');
+		let attr3 = div[0].hasAttributes();
+		console.log(attr3);
+
+		// もし、pというクラスを持っていなければ
+		// ありませんと強調して表示する
+
+		// let ptag = document.getElementsByTagName('p');
+		// for (let i = 0; i < ptag.length; i++) {
+		// 	if (ptag[i].hasAttribute('class') === false) {
+		// 		ptag[i].innerHTML = '<strong>ありません</strong>';
+		// 	}
+		// }
+
+			// もし、pタグの中にクラスを持っていないものがあれば
+			// 赤の強調で表示する
+			let ptag2 = document.getElementsByTagName('p');
+			for (let i = 0; i < ptag2.length; i++){
+				if(ptag2[i].hasAttributes() === false){
+					ptag2[i].style.color = 'red';
+					ptag2[i].style.fontWeight = 'bold';
+				}
+			}
+
+	</script>
+
+
+
+</body>
+
+</html>
