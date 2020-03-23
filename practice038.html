@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<textarea class="textarea" name="textarea" id="target" cols="30" rows="10"></textarea>
+	<a href="index.html">トップに戻る</a>
+
+	<script>
+		let textarea = document.getElementById('target');
+
+		// 要素に属する全ての属性を取得するには、attributesプロパティを使う
+		let attrs = textarea.attributes;
+		// どうゆう形式で返されているのか確認する
+		console.log(attrs);
+		// 戻り値のNamedNodeMapオブジェクトは
+		// HTMLCollectionに似ていて名前やインデックス番号からアクセスできる
+
+		// 個別にアクセスする時の例
+		// 結果は同じ
+		console.log(attrs[0]);
+		console.log(attrs.class);
+
+		// 全部取り出すときは、for文を使う
+		// 属性の中身をテキストエリアに全部書き出す
+		// 順番が属性値に記入されている順番通りという事を確認する事
+
+		for (let i = 0; i < attrs.length; i++) {
+			let attr_value = `${attrs[i].name}:${attrs[i].value}`;
+			textarea.textContent += attr_value + '\n';
+		}
+
+
+	</script>
+</body>
+
+</html>
