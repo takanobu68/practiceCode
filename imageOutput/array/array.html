@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// console.logでどうゆう形で戻っているかを確認する事
+		// 配列の定義方法
+		var array1 = [];
+		console.log(array1.length);
+
+		// 数値の配列
+		var array2 = [1, 2, 3];
+		console.log(array2[0]);
+		console.log(array2[1]);
+		console.log(array2[2]);
+
+		// 文字列の配列
+		var array3 = ['A', 'B', 'C'];
+
+		// 色々形で格納することも可能
+		var array4 = [1, 'A', '田中', true];
+		console.log(array4);
+
+		// 配列の中身に配列をいれることも出来る
+		var array5 = [[1, 2, 3], ['A', 'B', 'C']];
+		console.log(array5);
+		// 'B'を取得したい場合
+		console.log(array5[1][1]);
+
+		// 配列の中身にオブジェクトを入れることが出来る
+		var array6 = [{ name: 'Taro', age: 20 }, { name: 'Jiro', age: 18 }];
+		console.log(array6);
+
+		// 配列の中のオブジェクトのデータ取得方法
+		console.log(array6[1].name);
+
+	</script>
+</body>
+
+</html>
