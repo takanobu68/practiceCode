@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3種類のダイアログ</title>
+	<style>
+		button {
+			margin: 15px;
+		}
+
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: aqua;
+			display: none;
+			margin: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<button id="alert">アラートを出します</button><br>
+	<button id="confirm">確認ダイアログを出します</button><br>
+	<div id="box"></div>
+	<button id="prompt">文字入力ダイアログを表示</button>
+	<a href="index.html">トップに戻る</a>
+
+	<script>
+		let btnA = document.getElementById('alert');
+		btnA.addEventListener('click', function () {
+			// アラート中の改行は、\nがよい。
+			// テンプレート文字列を使っても改行は出来るが、考えている通りの表示にするためには
+			// コードが見にくくなる
+			alert('これがアラートです！\n戻り値はありません');
+		});
+
+		let btnB = document.getElementById('confirm');
+		btnB.addEventListener('click', function () {
+			// 確認ダイアログはOKならtrue
+			// キャンセルならfalseを返す
+			// 結果を変数に保存する事も可能
+			let answer = confirm('BOXを表示させますか？');
+			let box = document.getElementById('box');
+			if (answer) {
+				// もし、OKとユーザーが押した場合
+				box.style.display = 'block';
+			} else {
+				// キャンセルと押した場合
+				box.style.display = 'none';
+			}
+		})
+
+		let btnC = document.getElementById('prompt');
+		btnC.addEventListener('click', function () {
+			let reply = prompt('1+1は？');
+			// ユーザー入力は文字列で返されてくるので数値型に変えたい場合は処理をする
+			reply = Number(reply);
+			// キャンセルが押された場合、nullが返されるのでその処理
+			if (reply === null) {
+				alert('答えを入力してください');
+			} else if (reply === '') { // 次に空白で返されてきた時の処理
+				alert('答えを入力してください');
+			} else if (reply !== 2) {	// 正解以外を返されてきた時の処理
+				alert('不正解です');
+			} else { // 正解時の処理
+				alert('正解です！');
+				let correct = document.createElement('h2');
+				correct.setAttribute('id', 'reply');
+				correct.style.fontSize = '48px';
+				correct.style.color = 'red';
+				correct.textContent = 'おめでとうございます！';
+				btnC.after(correct);
+			}
+		})
+	</script>
+</body>
+
+</html>
