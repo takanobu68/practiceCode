@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>配列に要素を追加または削除する方法</title>
+</head>
+
+<body>
+	<a href="index.html">トップに戻る</a>
+	<script>
+		// 配列に要素を追加または削除
+
+		// 配列の「先頭」へ追加
+		let lead = [1, 2, 3];
+		lead.unshift(4, 5);
+		console.log(lead);
+		// 配列も要素として追加可能
+		lead.unshift('[a,b,c]');
+		console.log(lead);
+		// オブジェクトも追加可能
+		lead.unshift('{num:7}');
+		console.log(lead);
+
+		// 先頭の要素を削除
+		lead.shift()
+		console.log(lead);
+
+		// 配列の末尾へ追加
+		let back = [1, 2, 3];
+		back.push(4, 5);
+		console.log(back);
+
+		// 配列の末尾を削除
+		back.pop();
+		console.log(back);
+
+		// 配列への追加の時は何を追加するか決められるのに、
+		// 削除時は指定が出来ない事への疑問を持つ。
+		// また、指定の位置の追加・削除が出来ないので不便
+		// その場合に「spliceメソッド」を使う
+
+		var data = ['リンゴ', 'バナナ', '梨', 'スイカ', 'メロン'];
+		// dataという配列の、インデックス番号'3'から'2個分'要素を取出し
+		// '柿','みかん'へと置き換える命令を書く
+		var change = data.splice(3, 2, '柿', 'みかん'); // 取り出した要素は変数に保存可能
+		// 取り出した要素は配列での戻り値である事を確認する
+		// 取り出した要素が1個であっても戻り値は配列である。
+		console.log(change);
+		//配列の変更を確認
+		console.log(data);
+
+		// 置き換えの部分を指定しないと「指定された範囲の要素を削除する」という指示になる。
+		// dataという配列の、インデックス番号'3'から'2個分'要素を削除したい時は下記のように指示する
+		var del = data.splice(3, 2);
+		// 削除された要素を確認
+		console.log(del);
+		// 配列の確認
+		console.log(data);
+
+		// 指定の位置に追加したい場合
+		// dataという配列の、インデックス番号'2'の位置にマンゴー'を追加する指示は下記のようにする
+		let add = data.splice(2,0,'マンゴー');
+		// 取り出した要素はないので、結果は空。ただし戻り値は配列形式になっている。
+		console.log(add);
+		// 配列が変更されているか確認
+		console.log(data);
+
+	</script>
+</body>
+
+</html>
