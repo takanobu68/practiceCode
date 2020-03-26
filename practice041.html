@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ランダムな数字を作りたい</title>
+</head>
+
+<body>
+	<button id="btn">くじ</button>
+	<p id="result"></p>
+	<script>
+		// 0以上1未満の乱数を生成
+		var random = Math.random();
+		// 1以上10以下の数字を生成する方法
+		// どちらも「1以上10以下の数字を生成する」点は同じ。
+		// 結果に至る経過が同じだけか？
+		var math = Math.floor(Math.random() * 10) + 1;
+		var int = parseInt(Math.random() * 10) + 1;
+
+		console.log(random);
+		console.log(math);
+		console.log(int);
+
+		// 全部numberで戻ってくる
+		console.log(typeof (random));
+		console.log(typeof (math));
+		console.log(typeof (int));
+
+		// おみくじの原理
+
+		// くじのボタンを一回しか押させない機能
+		let option = {
+			once :true
+		};
+
+		let kuji = ['〇','×','〇','×','〇','×','〇','×','〇','×'];
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click',function(){
+			let random = Math.floor(Math.random() * 10);
+			let result = document.getElementById('result');
+			if(kuji[random] === '〇'){
+				result.textContent = '当たり';
+			}else{
+				result.textContent = 'ハズレ';
+			}
+			console.log(random);
+		},option);
+	</script>
+</body>
+
+</html>
