@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="number" id="num">
+	<button id="btn">追加</button>
+	<ul id="list"></ul>
+	<button id="btn2">合計</button>
+	<p id="result"></p>
+	<ul id="even"></ul>
+	<script>
+		// let numbers = [];
+		// let btn = document.getElementById('btn');
+
+		// btn.addEventListener('click',function(){
+		// let addNum = document.getElementById('num');
+		// addNum = num.value;
+		// numbers.push(addNum);
+		// let li = document.getElementById('list')
+		// 	numbers.forEach(function(value){
+		// 		li.insertAdjacentHTML('beforeend',`<li>${value}</li>`);
+		// 	});
+		// });
+
+		let btn = document.getElementById('btn');
+		btn.addEventListener('click', function () {
+			let addNum = document.getElementById('num');
+			addNum = num.value;
+			let li = document.getElementById('list')
+			li.insertAdjacentHTML('beforeend', `<li>${addNum}</li>`);
+		});
+
+		let btn2 = document.getElementById('btn2');
+		let even = document.getElementById('even');
+		let total = 0;
+		let filter;
+		btn2.addEventListener('click', function () {
+			let plusNum = document.querySelectorAll('li');
+			plusNum = [...plusNum];
+
+			filter = plusNum.filter(function (value) {
+				if (value.textContent % 2 === 0) {
+					return value.textContent;
+				}
+			});
+			let evenResult = document.getElementById('even');
+			even.textContent = 'リストの偶数値は';
+			filter.forEach(function(value){
+				evenResult.insertAdjacentHTML('beforeend', `<li>${value.textContent}</li>`);
+			})
+
+			plusNum.forEach(function (value, ) {
+				let a = Number(value.textContent);
+				total = total + a;
+			});
+			document.getElementById('result').textContent = `リストの合計は${total}です`;
+		});
+
+
+	</script>
+</body>
+
+</html>
