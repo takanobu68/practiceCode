@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>配列の連結</title>
+</head>
+<body>
+	<script>
+		// 基本の連結
+		// 配列作成
+		let array1 = [1,2,3];
+		let array2 = [4,5,6];
+		// 配列の連結
+		let array3 = array1.concat(array2);
+		console.log(array3);
+		// 連結後もarray1,2はそのまま残る事は覚えておく
+		console.log(array1);
+		console.log(array2);
+
+		// スプレッド演算子を用いても連結が可能
+		// 最初の配列に連結していく
+		let array4 = [...array1,...array2];
+		console.log(array4);
+		// concat()メソッドと同じく連結に使った配列の元は残る
+		console.log(array1);
+		console.log(array2);
+
+		// 文字列の連結も可能
+		// 単語の場合
+		let str1 = '連';
+		let str2 = '結';
+		let str3 = str1.concat(str2);
+		// 結果の確認
+		// 文字同士の連結になるだけ、データ型もstringになる
+		console.log(str3)
+		console.log(typeof(str3));
+		// こちらも元々の配列はなくならない
+		console.log(str1);
+		console.log(str2);
+
+		// 文字列が入った配列の連結
+		let str4 = ['配列'];
+		let str5 = ['連結'];
+		let str6 = str4.concat(str5);
+		console.log(str6);
+		// しつこいようだが、元々の配列はなくならない
+		console.log(str4);
+		console.log(str5);
+
+		// 配列のコピーも可能
+		// オリジナルの配列を作成
+		let original = ['a','b','c','d','e'];
+		// オリジナルの配列に対して引数なしでconcatメソッドを使用するだけ
+		let copy = original.concat();
+		// コピーが出来ているか確認
+		console.log(original);
+		console.log(copy);
+
+	</script>
+</body>
+</html>
