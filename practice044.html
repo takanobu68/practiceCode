@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			width: 60%;
+			margin: 0 auto;
+		}
+
+		.flex {
+			display: flex;
+			justify-content: space-between;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="flex">
+		<div>
+			<p>数字入力欄①</p>
+			<input type="number" id="num1">
+			<button id="btn1">数字の追加</button>
+			<ul id="area1"></ul>
+		</div>
+		<div>
+			<p>数字入力欄②</p>
+			<input type="number" id="num2">
+			<button id="btn2">数字の追加</button>
+			<ul id="area2"></ul>
+		</div>
+		<div>
+			<p><button id="btn3">数字を合計する</button></p>
+			<p id="result"></p>
+		</div>
+	</div>
+	<script>
+		let area1 = document.getElementById('area1');
+		let area2 = document.getElementById('area2');
+
+		let btn1 = document.getElementById('btn1');
+		let btn2 = document.getElementById('btn2');
+		let btn3 = document.getElementById('btn3');
+
+		let numbers1 = [];
+		let numbers2 = [];
+
+		btn1.addEventListener('click', function () {
+			let num1 = document.getElementById('num1');
+			num1 = Number(num1.value);
+			if (num1 === '') {
+				alert('数字を入力してください');
+				return;
+			}
+			numbers1.push(num1);
+			let addNum1 = numbers1.slice(-1)[0];
+			area1.insertAdjacentHTML('beforeend', `<li>${addNum1}</li>`);
+		});
+
+		btn2.addEventListener('click', function () {
+			let num2 = document.getElementById('num2');
+			num2 = Number(num2.value);
+			if (num2 === '') {
+				alert('数字を入力してください');
+				return;
+			}
+			numbers2.push(num2);
+			let addNum2 = numbers2.slice(-1)[0];
+			area2.insertAdjacentHTML('beforeend', `<li>${addNum2}</li>`);
+		});
+
+		btn3.addEventListener('click',function(){
+			numbers3 = numbers1.concat(numbers2);
+			let total=0;
+			numbers3.forEach(function(value){
+				total += value;
+			});
+			let result = document.getElementById('result');
+			result.textContent = `数字の合計は${total}です`;
+		});
+
+
+
+	</script>
+</body>
+
+</html>
