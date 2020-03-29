@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>要素を作る3パターン</title>
+	<style>
+		.text {
+			color: red;
+			font-size: 48px;
+		}
+	</style>
+</head>
+
+<body>
+	<input type="text" id="text">
+	<div id="list"></div>
+
+	<script>
+		let text = document.getElementById('text');
+		let list = document.getElementById('list');
+
+		// [1]最初に要素を作って、そこに付け加えるイメージ
+		// text.addEventListener('change',function(){
+		// 	let item = document.createElement('p');
+		// 	item.textContent = text.value;
+		// 	item.classList.add('text');
+		// 	list.appendChild(item);
+		// 	console.log(item);
+		// });
+
+		// [2] バラバラにパーツを作り、組み立てをしていくイメージ
+		// text.addEventListener('change', function () {
+		// 	let item = document.createElement('p');
+		// 	// パターン① クラスという属性ノードを作り、名前を変更してitemに付与する
+		// 	// let cl = document.createAttribute('class');
+		// 	//.classNameではなくvalueを使用
+		// 	// cl.value = 'text';
+		// 	// item.setAttributeNode(cl);
+
+		// 	// パターン② 作った要素のclassNameプロパティをtextに変更
+		// 	item.className = 'text';
+		// 	let item_text = document.createTextNode(text.value);
+		// 	item.appendChild(item_text);
+		// 	list.appendChild(item);
+		// })
+
+		// [3] 一旦別の場所で作ってから、最後に追加するイメージ
+		text.addEventListener('change', function () {
+			let another_area = document.createDocumentFragment();
+			let item = document.createElement('p');
+			item.textContent = text.value;
+			item.classList.add('text');
+			another_area = item;
+			list.appendChild(another_area);
+		})
+
+	</script>
+</body>
+
+</html>
