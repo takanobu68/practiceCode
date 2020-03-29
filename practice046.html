@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>クローンの作成</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			background-color: blue;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">複製</button>
+	<div id="target">
+		<div id="box"></div>
+	</div>
+
+	<script>
+		let target = document.getElementById('target');
+		let btn = document.getElementById('btn');
+		let box = document.getElementById('box')
+
+		btn.addEventListener('click',function(){
+			let clone = box.cloneNode(true);
+			target.appendChild(clone);
+		})
+	</script>
+</body>
+</html>
