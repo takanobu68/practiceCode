@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>preventDefaultの使い方</title>
+</head>
+
+<body>
+	<form action="#">
+		<input type="checkbox" id="check">
+		<input type="text" name="text">
+		<input type="submit" id="submit">
+	</form>
+
+	<script>
+		const submit = document.getElementById('submit');
+		submit.addEventListener('click', function (event) {
+			const check = document.getElementById('check').checked;
+			let text = document.getElementsByName('text');
+			text = text[0].value;
+			if (check === false || text === '') {
+				event.preventDefault();
+			}
+		});
+
+	</script>
+</body>
+
+</html>
