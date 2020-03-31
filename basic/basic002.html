@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// アロー関数の使い方
+		// メリット
+		// 関数の簡略化が可能
+
+		// 従来の書き方
+		const func = function () {
+			return 'conventional';
+		}
+
+		const call = func();
+		console.log(call);
+
+		// 引数がある場合
+		const func1 = function (hikisu) {
+			return hikisu;
+		}
+
+		const hello = func1('hello');
+		console.log(hello);
+
+
+		// アロー関数の書き方
+		const arrow = () => {
+			return 'now';
+		}
+
+		const arrowcall = arrow();
+		console.log(arrowcall);
+
+		// 引数がある場合
+		const arrow1 = (hikisu) => {
+			return hikisu;
+		}
+
+		const goodEvening = arrow1('goodEvening');
+		console.log(goodEvening);
+
+		// アロー関数の省略記法
+		// 省略無の場合
+		// const plus = (a) => {
+		// 	return a + 1;
+		// }
+
+		// 関数内の処理が一文の場合はreturnと{}は省略できる
+		// 省略する際は、両方省略しなくてはならない。
+		// どちらか片方を入れると処理がおかしくなる
+		// const plus = (a) => a + 1;
+
+		// さらに引数が一つの場合は()も省略できる
+		const plus = a => a + 1;
+		const plus1 = plus(1);
+		console.log(plus1);
+
+		// ただし、引数がない場合は省略は()の省略はできない点は注意
+		const aisatu = () => console.log('こんにちは');
+		aisatu();
+	</script>
+</body>
+
+</html>
