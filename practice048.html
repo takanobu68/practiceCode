@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>イベントリスナーの削除</title>
+</head>
+
+<body>
+	<button id="btn">アラートを表示させます</button>
+	<script>
+		let flg;
+		const btn = document.getElementById('btn');
+		let ale = () => {
+			alert('ボタンが押されました');
+			flg = true;
+		};
+
+		btn.addEventListener('click', ale);
+		btn.addEventListener('mouseout', () => {
+			if (flg) {
+				btn.removeEventListener('click', ale);
+			}
+		});
+	</script>
+</body>
+
+</html>
