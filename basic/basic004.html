@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ブロックレベルのスコープについて</title>
+</head>
+
+<body>
+	<script>
+
+		const a = 1;
+		let b = 2;
+		var c = 3;
+
+		{
+			// constは{}の外と中で区別されるので再代入にならずエラーにもならない
+			const a = 10;
+			let b = 20;
+			var c = 30;
+
+			console.log(a); // 結果は10
+			console.log(b); // 結果は20
+			console.log(c); // 結果は30
+
+		}
+
+		// constとletは{}の外と中が区別され途中の{}での再代入は飛ばされる
+		// よって、最初に代入された数値がそのまま結果で返される
+		console.log(a); // 結果は1
+		console.log(b); // 結果は2
+
+		// varは{}の外と中で区別しないので、途中の{}内での代入が有効となる
+		console.log(c); // 結果は30
+
+
+		// 以下は変数で覚えておきたい知識
+
+		// 変数を宣言していても、値を省略している場合は
+		// undefinedが返ってくる
+		let variable;
+		console.log(variable);
+
+		// 変数は複数同時に宣言できる
+		let d = 4,
+			e = 5,
+			f = 6;
+		console.log(d); // 結果 4
+		console.log(e); // 結果 5
+		console.log(f); // 結果 6
+	</script>
+</body>
+
+</html>
