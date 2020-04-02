@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>()は関数を実行する</title>
+</head>
+<body>
+	<script>
+		const hello = ()=>{
+			return 'こんにちは';
+		}
+
+		// 関数名の後の()により関数を実行しているので
+		// 結果は'こんにちは'
+		console.log(hello());
+
+		// 関数の後に()が付いていない為、関数は実行されない。
+		// そのためhelloの中身が文字列となり結果に表示される。
+
+		console.log(hello);
+	</script>
+</body>
+</html>
