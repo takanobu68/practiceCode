@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-forの使い方</title>
+</head>
+
+<body>
+	<div id="app">
+		<!-- チェックボックスのブーリアン値をv-modelでつないでいる -->
+		<input type="checkbox" v-model="checked">
+		<!-- checkedの状態がtrueなら -->
+		<p v-if="checked">チェックされています</p>
+		<!-- checkedの状態がfalseなら -->
+		<p v-else="checked">チェックされていません</p>
+		<hr>
+
+		<!-- clickイベントにoneClickを付けて
+		ボタンを押したらclickがfalseになるように設定 -->
+		<button v-if="click" v-on:click="oneClick">一回押したらボタンが消えます</button>
+		<br>
+		<hr>
+
+		<!-- v-else-ifの使い方 -->
+		<select v-model="abc">
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c">C</option>
+		</select>
+		<div v-if="abc === 'a'">選択されているのはAです</div>
+		<div v-else-if="abc === 'b'">選択されているのはBです</div>
+		<div v-else-if="abc === 'c'">選択されているのはCです</div>
+		<div v-else>選択されていません</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				checked: false,
+				click: true,
+				abc : ''
+			},
+			methods: {
+				oneClick: function () {
+					this.click = false
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
