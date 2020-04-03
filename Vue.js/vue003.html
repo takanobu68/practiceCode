@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		button{
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="onclick">アラートが出ます</button><br>
+		<!-- v-onは省略構文がある v-onを@で置き換えられる
+		<button @click="onclick">アラートが出ます</button><br> -->
+
+		<!-- 引数を渡すことも出来る -->
+		<button v-on:click="countUp(10)">10増えます</button>
+		<button v-on:click="countUp(100)">100増えます</button>
+		<button v-on:click="countUp(1000)">1000増えます</button>
+
+		<p>{{num}}</p>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+	<script>
+		new Vue ({
+			el : '#app',
+			data : {
+				message : 'ボタンが押されました',
+				num : 1
+			},
+			methods :{
+				onclick : function(){
+					alert(this.message);
+				},
+				countUp : function(add){
+					this.num += add
+				}
+			}
+		})
+	</script>
+</body>
+</html>
