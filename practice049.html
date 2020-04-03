@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// 配列に対して
+		let ary1 = [1, 2, 3, 4, 5];
+		// 削除出来たかどうか真偽値で返す
+		console.log(delete ary1[2]);
+		// 配列のインデックス番号の要素を削除したが、
+		// インデックス番号はなくならない、
+		// 結果でemptyと表示されている。
+		console.log(ary1);
+		// 配列そのものの削除はできない
+		console.log(delete ary1);
+
+		// constで定義した配列に適用されるか確認
+		const ary2 = [1, 2, 3, 4, 5];
+		delete ary2[0];
+		// 結果は可能
+		console.log(ary2);
+
+		// オブジェクトへの適用
+		let obj1 = { a: 1, b: 2 };
+		delete obj1.a;
+		console.log(obj1);  // 結果は{b:2}となりa:1は削除されている
+
+		// 変数の値に対して
+		let a = 5;
+		// 削除することが出来ない
+		console.log(delete a);
+		console.log(a);
+
+	</script>
+</body>
+
+</html>
