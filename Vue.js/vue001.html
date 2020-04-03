@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-bindについて</title>
+	<style>
+		.fontChange {
+			font-size: 48px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<!-- 属性に対して{{}}(マスタッシュ構文)は使うことが出来ない
+		属性値の操作には、代わりにv-bindディレクティブを使う -->
+
+		<!-- <a href="{{ url }}">Vue.js</a> これではダメ-->
+
+		<!-- 構文
+		「v-bind:属性値='値'」 -->
+
+		<a v-bind:href="url">Vue.js</a>
+		<!-- <a :href="url"></a> v-bindを省略した構文も使用可能コロンを付けるだけでいい-->
+
+		<!-- styleの値を複数指定 -->
+		<div id="box" v-bind:style="style"></div>
+
+		<!-- classの値も指定出来る -->
+		<div v-bind:class="addClass">文字</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				url: 'https://jp.vuejs.org/',
+				// オブジェクト形式で値を渡して、複数の設定もする事ができる
+				style: {
+					width: '100px',
+					height: '100px',
+					backgroundColor: 'red'
+				},
+				addClass: 'fontChange'
+			}
+		});
+	</script>
+</body>
+
+</html>
