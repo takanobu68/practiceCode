@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>typeof演算子について</title>
+</head>
+<body>
+	<script>
+		// 数値に対して
+		let num = 1;
+		console.log(typeof num); // number
+
+		// 文字列に対して
+		let str = 'あいうえお';
+		console.log(typeof str); // string
+
+		// 真偽値に対して
+		let flag = true;
+		console.log(typeof flag);// boolean
+
+		// 関数に対して
+		let func = ()=>{
+			console.log(a);
+		}
+		console.log(typeof func); // function
+
+		// 配列に対して
+		let ary = [1,2,3,4,5];
+		console.log(typeof ary); // object
+
+		// オブジェクトに対して
+		let obj = {id:1,age:20};
+		console.log(typeof obj); // object
+
+		// nullに対して
+		let em = null;
+		console.log(typeof em); // object
+	</script>
+</body>
+</html>
