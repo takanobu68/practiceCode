@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#target {
+			display: flex;
+		}
+
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<p>1～10の数字を入力してください<br>数字と同じ数の四角が出来ます</p>
+	<input type="number" id="num">
+	<button id="btn">ボタン</button>
+	<div id="target">
+	</div>
+	<script>
+		let num = document.getElementById('num');
+		let btn = document.getElementById('btn');
+
+		btn.addEventListener('click', () => {
+
+			let target = document.getElementById('target');
+			let numValue = Number(num.value);
+			let square;
+
+			if (target.children.length > 0) {
+				let boxes = document.querySelectorAll('.box');
+				for (let i = 0; i < boxes.length; i++) {
+					target.removeChild(boxes[i]);
+				}
+			}
+
+			if (numValue === '') {
+				return alert('数値を入力してください');
+			};
+
+			if (numValue < 1 || numValue > 10) {
+				return alert('1～10の間で入力してください');
+			};
+
+			square = document.createElement('div');
+			square.classList.add('box');
+
+			let count = 1;
+			while (count <= numValue) {
+				let box = square.cloneNode();
+				target.appendChild(box);
+				count++;
+			};
+		});
+
+	</script>
+</body>
+
+</html>
