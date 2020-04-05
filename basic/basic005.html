@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		// if文では複数の条件に合致する場合でも
+		// 最初に合致したブロックしか実行されない
+
+		// このif文では最初の条件に合致してしまう為、
+		// 次の条件はチェックしない
+
+		// let num = 1;
+		// if(num > 0){ ここで条件が合致してしまう
+		// 	console.log('numは0ではありません');
+		// }else if(num === 1){ この条件はチェックされない
+		// 	console.log('numは1です');
+		// };
+		// 結果 numは0ではありません
+
+		// let num = 1;
+		// if (num > 0) { ここで条件が合致するので
+		// 	if (num === 1) { そこからさらに条件を追加するイメージ、ここで条件が合致するので
+		// 		console.log('numは1です'); この部分が結果として返る
+		// 	} else {
+		// 		console.log('numは0ではありません');
+		// 	}
+		// };
+		//  結果 numは1です
+
+		// 関数を使った処理
+		// let numcheck = (num) => {
+		// 	if (num > 0) {
+		// 		if (num === 1) {
+		// 			return 'numは1です';
+		// 		} else {
+		// 			return ('numは0ではありません');
+		// 		}
+		// 	};
+		// };
+
+		// console.log(numcheck(num));
+
+		// if(num > 0 && num === 1){ &&演算子を使う方法もある
+		// 	console.log('numは1です');
+		// }
+		// 結果 numは1です
+
+		// 上の事が理解できると、細かく指定することが出来る。
+		// let num = 5;
+		// if (num > 10) {
+		// 	if (num <= 15) {
+		// 		console.log(`${num}は11から15の間の数字です`);
+		// 	} else if (num > 15 && num <= 20) {
+		// 		console.log(`${num}は16から20の間の数字です`);
+		// 	} else {
+		// 		console.log(`${num}は20以上の数字です`);
+		// 	}
+		// } else {
+		// 	console.log(`${num}は10以下の数字です`);
+		// }
+
+
+		// let numcheck = (num) =>{
+		// 	if (num > 10) {
+		// 		if (num <= 15) {
+		// 			return `${num}は11から15の間の数字です`;
+		// 		} else if (num > 15 && num <= 20) {
+		// 			return `${num}は16から20の間の数字です`;
+		// 		} else {
+		// 			return `${num}は20以上の数字です`;
+		// 		}
+		// 	} else {
+		// 		return `${num}は10以下の数字です`;
+		// 	}
+		// };
+
+		// console.log(numcheck(11));
+
+	</script>
+</body>
+
+</html>
