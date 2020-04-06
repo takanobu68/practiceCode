@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>breakとcontinue</title>
+</head>
+
+<body>
+	<script>
+		// let num = 0;
+		// for (let i = 1; i <= 10; i++) {
+		// 	console.log(i);
+		// };
+
+		// for (let i = 1; i <= 10; i++) {
+		// 	console.log(i);
+		// 	if (i === 3) {
+		// 		break;
+		// 	}
+		// };
+
+		// for (let i = 1; i <= 9; i++) {
+		// 	for (let j = 1; j <= 9; j++) {
+		// 		let result = i * j;
+		// 		console.log(`${i}×${j}は${result}`);
+		// 	};
+		// };
+
+		// for (let i = 1; i <= 9; i++) {
+		// 	if (i === 6) { break };
+		// 	for (let j = 1; j <= 9; j++) {
+		// 		let result = i * j;
+		// 		console.log(`${i}×${j}は${result}`);
+		// 	};
+		// };
+
+		// for (let i = 1; i <= 9; i++) {
+		// 	if (i % 2 === 0) { continue };
+		// 	for (let j = 1; j <= 9; j++) {
+		// 		let result = i * j;
+		// 		console.log(`${i}×${j}は${result}`);
+		// 	};
+		// };
+
+		let total = 0;
+		add:
+		for (let i = 1; i <= 9; i++){
+			for(let j = 1; j <= 9; j++){
+				let result = i * j;
+				console.log(`${i}×${j}は${result}`);
+				total += result;
+				if(total > 100){
+					console.log(`積の合計が100を超えて${total}になったので終了します`);
+					break add;
+				}
+			}
+		}
+
+
+
+	</script>
+</body>
+
+</html>
