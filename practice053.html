@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>setTimeoutとclearTimeoutについて</title>
+	<style>
+		.blue {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			margin: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<button id="btn">四角を作る</button>
+	<button id="btn2">止める</button>
+	<div id="target"></div>
+
+	<script>
+		let btn = document.getElementById('btn');
+		let btn2 = document.getElementById('btn2');
+		let target = document.getElementById('target');
+		let time = 5000;
+		let start;
+
+		btn.addEventListener('click', () => {
+			start = setTimeout(makeBox, time);
+		});
+
+		btn2.addEventListener('click', () => {
+			clearTimeout(start);
+			alert('作成を止めました');
+		});
+
+		function makeBox() {
+			let square = document.createElement('div');
+			square.classList.add('blue');
+			target.appendChild(square);
+		};
+
+	</script>
+</body>
+
+</html>
