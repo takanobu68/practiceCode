@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>比較演算子確認表</title>
+	<style>
+		span {
+			color: red;
+		}
+		input{
+			margin: 5px;
+		}
+		button{
+			margin: 3px;
+		}
+	</style>
+</head>
+
+<body>
+	A<input type="text" id="num1"><br>
+	B<input type="text" id="num2"><br>
+	<button id="btn">確認</button>
+	<hr>
+	<ul>
+		<li id="terms1">A == B <span id="result1"></span></li>
+		<li id="terms2">A != B <span id="result2"></span></li>
+		<li id="terms3">A > B <span id="result3"></span></li>
+		<li id="terms4">A >= B <span id="result4"></span></li>
+		<li id="terms5">A < B <span id="result5"></span></li>
+		<li id="terms6">A <= B <span id="result6"></span></li>
+		<li id="terms7">A === B <span id="result7"></span></li>
+		<li id="terms8">A !== B <span id="result8"></span></li>
+	</ul>
+
+	<script>
+		let btn = document.getElementById('btn');
+
+		btn.addEventListener('click', () => {
+			let num1 = document.getElementById('num1').value;
+			let num2 = document.getElementById('num2').value;
+
+			if(num1 === '' || isNaN(num1)){
+				return alert('Aに数値を入力してください');
+			}
+			if(num2 === '' || isNaN(num2)){
+				return alert('Bに数値を入力してください');
+			}
+
+			document.getElementById('result1').textContent = num1 == num2;
+			document.getElementById('result2').textContent = num1 != num2;
+			document.getElementById('result3').textContent = num1 > num2;
+			document.getElementById('result4').textContent = num1 >= num2;
+			document.getElementById('result5').textContent = num1 < num2;
+			document.getElementById('result6').textContent = num1 <= num2;
+			document.getElementById('result7').textContent = num1 === num2;
+			document.getElementById('result8').textContent = num1 !== num2;
+		});
+
+	</script>
+</body>
+
+</html>
