@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		let ary = [];
+		for (let i = 0; i < 30; i++) {
+			ary[i] = Math.floor(Math.random() * 100 + 1);
+		};
+
+		let max = 0;
+		let sum = 0;
+
+		for (let num of ary) {
+			if (max < num) {
+				max = num;
+			};
+			sum += num;
+		}
+
+		console.log(max);
+		console.log(sum);
+	</script>
+</body>
+
+</html>
