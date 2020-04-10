@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// Mapオブジェクトの初期化
+		let takanobu = new Map();
+
+		// set(key,value)で要素の追加。重複時は上書き
+		takanobu.set('HTML', 10);
+		takanobu.set('CSS', 5);
+		takanobu.set('JavaScript', 18);
+		takanobu.set('JavaScript', 20);
+
+		// オブジェクト.sizeで要素数の取得
+		console.log(takanobu.size);
+
+		// オブジェクト.has(key)で要素が存在するかどうか
+		console.log(takanobu.has('HTML'));
+
+		// オブジェクト.keys()で全てのkeyを取得
+		console.log(takanobu.keys());
+
+		let keys = takanobu.keys();
+		for(let key of keys){
+			console.log(key);
+		}
+		// オブジェクト.values()で全ての値を取得
+		console.log(takanobu.values());
+
+		// keyと値を順に取得
+		for(let [key,value] of takanobu){
+			console.log(`${key}:${value}`);
+		}
+
+		// for...of と同じことがforEachでも可能
+		takanobu.forEach((value,key)=>{
+			console.log(`${key}:${value}`);
+		});
+
+		// 全てのkeyと値を取得 entries()使用
+		let entries = takanobu.entries();
+		console.log(entries);
+
+		// for..ofを使うと配列形式の出力
+		for(let entry of entries){
+			console.log(entry);
+		};
+
+		for(let [key,value] of takanobu.entries()){
+			console.log(`${key}:${value}`);
+		};
+
+		// この方法は使えない
+		// entries.forEach((value,key)=>{
+		// 	console.log(`${key}:${value}`);
+		// });
+	</script>
+</body>
+
+</html>
