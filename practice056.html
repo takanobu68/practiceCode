@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>クラスの作り方と使い方</title>
+</head>
+
+<body>
+	<script>
+		class programlangSkill {
+			constructor(HTML = 0, CSS = 0, JavaScript = 0) {
+				this.HTML = HTML,
+				this.CSS = CSS,
+				this.JavaScript = JavaScript
+			}
+
+			setdata(HTML,CSS,JavaScript){
+				this.HTML = HTML,
+				this.CSS = CSS,
+				this.JavaScript = JavaScript
+			}
+
+			totalpoint() {
+				return this.HTML + this.CSS + this.JavaScript;
+			}
+
+			averagepoint() {
+				let sum = this.totalpoint();
+				return sum / 3;
+			}
+		};
+
+		let skillPoint = new programlangSkill(10, 5, 15);
+		console.log(skillPoint);
+		console.log(skillPoint.HTML);
+		skillPoint.setdata(20,20,30);
+		console.log(skillPoint.HTML);
+		console.log(skillPoint.totalpoint());
+		console.log(skillPoint.averagepoint());
+	</script>
+</body>
+
+</html>
