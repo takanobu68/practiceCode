@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		console.log(sum(1, 2));
+		// console.log(sumA(1, 2)); ここで関数を使おうとするとエラーが出る
+		// console.log(sumB(1, 2));	ここで関数を使おうとするとエラーが出る
+
+		// ①function命令で定義
+		function sum(num1, num2) {
+			return num1 + num2;
+		};
+
+		// ②無名関数での定義
+		let sumA = function (num1, num2) {
+			return num1 + num2;
+		};
+
+		// ③アロー関数での定義
+		let sumB = (num1, num2) => {
+			return num1 + num2;
+		};
+
+		console.log(sum(1, 2));
+		console.log(sumA(1, 2));
+		console.log(sumB(1, 2));
+	</script>
+</body>
+
+</html>
