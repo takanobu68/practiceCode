@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// get/setの使用を目的としたクラスの作成
+		class members {
+			constructor(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+
+			// ageを参照されたときに呼び出されるメソッド
+			get age() {
+				return `${this._age}歳`;
+			}
+
+			// ageに代入された時に呼び出されるメソッド
+			set age(value) {
+				this._age = value;
+			}
+
+			getdata(){
+				return this.name + ':' + this.age;
+			}
+		};
+
+		let member = new members('たかのぶ',36);
+		console.log(member.age);
+		console.log(member.age = 37);
+		console.log(member.age);
+		console.log(member.getdata());
+
+		// クラスの継承
+		class workday extends members{
+			startWork(){
+				let start  = this.age;
+				return `たかのぶは${start}からエンジニアとして働きます`;
+			}
+		};
+
+		let work = new workday('たかのぶ',36);
+		// 継承されているかの確認
+		console.log(work.age);
+		console.log(work.getdata());
+		// 新しく定義したメソッドの確認
+		console.log(work.startWork());
+	</script>
+</body>
+
+</html>
