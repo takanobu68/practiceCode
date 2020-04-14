@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app">
+		<p>支払方法</p>
+		<input type="radio" value="credit" v-model="pay">クレジットカード
+		<input type="radio" value="bank" v-model="pay">銀行口座
+
+		<div v-if="pay === 'credit'">
+			カード番号
+			<input type="text" key="credit" v-model.number="creditNum">
+			<p>{{creditNum}}</p>
+		</div>
+		<div v-else-if="pay === 'bank'">
+			銀行口座
+			<input type="text" key="bank" v-model.number="bankNum">
+			<p>{{bankNum}}</p>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				pay: 'credit',
+				creditNum : '',
+				bankNum : ''
+			}
+		})
+	</script>
+</body>
+
+</html>
