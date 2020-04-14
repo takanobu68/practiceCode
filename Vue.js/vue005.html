@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-modelの使い方 radio</title>
+</head>
+
+
+<body>
+	<div id="app">
+		<input type="radio" value="HTML" v-model="language">HTML
+		<input type="radio" value="CSS" v-model="language">CSS
+		<input type="radio" value="JavaScript" v-model="language">JavaScript
+		<p>{{language}}</p>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data :{
+				language : ''
+			}
+		})
+	</script>
+</body>
+
+</html>
