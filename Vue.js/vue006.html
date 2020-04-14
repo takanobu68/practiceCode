@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+	<div id="app">
+		<input type="checkbox" v-model="check">
+		<p>{{check}}</p>
+
+		<input type="checkbox" value="HTML" v-model="language">HTML
+		<input type="checkbox" value="CSS" v-model="language">CSS
+		<input type="checkbox" value="JavaScript" v-model="language">JavaScript
+		<p>{{language}}</p>
+	</div>
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data :{
+				check : false,
+				language : []
+			}
+		})
+	</script>
+</body>
+
+</html>
