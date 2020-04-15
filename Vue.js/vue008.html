@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>コンポーネントのグローバル登録</title>
+</head>
+
+<body>
+
+<div id="app">
+	<call-name></call-name>
+</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('call-name',{
+			template:`<div>こんにちは{{name}}</div>`,
+			data : function(){
+				return {
+					name : 'たかのぶ'
+				}
+			}
+		});
+
+		new Vue({
+			el:'#app',
+		})
+	</script>
+</body>
+
+</html>
