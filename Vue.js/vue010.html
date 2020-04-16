@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>propsオプション</title>
+</head>
+<body>
+	<div id="app">
+		<!-- 属性名の記法はケバブケース記法 -->
+		<my-name user-name="たかのぶ"></my-name>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('my-name',{
+			// propsオプションに[プロパティ名]形式の文字列配列として定義
+			// プロパティ名が複数の単語で構成される場合はキャメルケース記法を使用
+			props : ['userName'],
+			template : `<div>私の名前は{{userName}}です</div>`
+		});
+
+		new Vue({
+			el:'#app'
+		})
+	</script>
+</body>
+</html>
