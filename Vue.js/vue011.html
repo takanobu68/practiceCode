@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>プロパティで受け取った値の更新方法</title>
+</head>
+<body>
+	<div id="app">
+		<counter init="0"></counter>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('counter',{
+			props : ['init'],
+			template : `<div>
+			<p>現在の値は{{count}}です</p>
+			<button v-on:click="countUp">+1</button>
+			</div>
+			`,
+			data : function(){
+				return{
+					count : this.init
+				}
+			},
+			methods : {
+				countUp : function(){
+					this.count++
+				}
+			}
+		});
+
+		new Vue({
+			el :'#app'
+		})
+	</script>
+</body>
+</html>
