@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>$emitメソッド</title>
+</head>
+
+<body>
+	<div id="app">
+		<p>現在値{{current}}</p>
+		<counter count="1" v-on:plus="onplus"></counter>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+
+		Vue.component('counter', {
+			props: ['count'],
+			template: `<button v-on:click="onclick">+{{count}}</button>`,
+			methods: {
+				onclick() {
+					this.$emit('plus', Number(this.count));
+				}
+			}
+		});
+
+		new Vue({
+			el: '#app',
+			data: {
+				current: 0
+			},
+			methods: {
+				onplus: function (e) {
+					this.current += e;
+				}
+			}
+		});
+
+	</script>
+</body>
+
+</html>
