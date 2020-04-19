@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>component要素の使用</title>
+</head>
+
+<body>
+	<div id="app">
+		<component v-bind:is="cur"></component>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('word-A', {
+			template: `<p>A</p>`
+		});
+
+		Vue.component('word-B', {
+			template: `<p>B</p>`
+		});
+
+		Vue.component('word-C', {
+			template: `<p>C</p>`
+		});
+
+		new Vue({
+			el: '#app',
+			created: function () {
+				let that = this;
+				this.interval = setInterval(function () {
+					that.current = (that.current + 1) % that.components.length;
+				}, 3000);
+			},
+			beforeDestroy: function () {
+				clearInterval(this.interval);
+			},
+			computed: {
+				cur: function () {
+					return 'word-' + this.components[this.current];
+				}
+			},
+			data: {
+				current: 0,
+				components: ['A', 'B', 'C']
+			}
+		});
+	</script>
+</body>
+
+</html>
