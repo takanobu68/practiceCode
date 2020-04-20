@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ここから要素を取得して、
+	console.logで<div id="id" class="class">テキスト</div>と
+	表示される方法をいくつか考えてみてください。 -->
+
+	<div id="id" class="class">テキスト</div>
+
+	<!-- 表示が出来たら、テキストの部分を変更する方法をいくつか考えて試してください。 -->
+
+	<script>
+		// 要素を取得する方法
+		const id = document.getElementById('id');
+		const cls = document.getElementsByClassName('class');
+		const que1 = document.querySelector('#id');
+		const que2 = document.querySelector('.class');
+		const que3 = document.querySelector('div');
+		const queall1 = document.querySelectorAll('#id');
+		const queall2 = document.querySelectorAll('.class');
+		const queall3 = document.querySelectorAll('div');
+		const d = document.getElementsByTagName('div');
+
+		// console.logで<div id="id" class="class">テキスト</div>と表示する方法
+		console.log(id);
+		console.log(cls[0]);
+		console.log(que1);
+		console.log(que2);
+		console.log(que3);
+		console.log(queall1[0]);
+		console.log(queall2[0]);
+		console.log(queall3[0]);
+		console.log(d[0]);
+
+		// 「テキスト」部分を変更する方法
+		id.innerHTML = 'Test';
+		id.innerText = 'テスト';
+		id.textContent = 'test';
+
+		// 回答の一例のため、他に方法があれば試した後私にも教えて下さい。
+
+	</script>
+</body>
+</html>
