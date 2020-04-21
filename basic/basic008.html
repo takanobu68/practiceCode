@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// 最初の所持金
+	let money = 50;
+	// 回数
+	let count = 0;
+
+	// 所持金が0になるか、倍の100になるまで続ける
+	while(money>0 && money<100){
+		// 回数を増やす
+		count++;
+		// 掛け金を決める
+		let bet = Math.floor(Math.random()*10+1);
+		// 賭ける目を決める
+		let choice = Math.floor(Math.random()*6+1);
+		// サイコロの目を決める
+		let dice = Math.floor(Math.random()*6+1);
+
+		// 賭けた目とサイコロの目が一致したら掛け金は2倍
+		if (choice === dice){
+			money = money + (bet*2);
+		}else{ // 外れたら掛け金は没収
+			money = money - bet ;
+		}
+	};
+
+	// 結果の表示
+	console.log(`${count}回目で所持金が${money}となったので終了しました`);
+
+</script>
+</body>
+</html>
