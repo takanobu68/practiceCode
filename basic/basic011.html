@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		console.log(hello1('たかのぶ'));
+		// この二つをここで実行するとエラーになる原因も考えてみてください
+		// console.log(hello2('たかのぶ')); エラーとなる
+		// console.log(hello3('たかのぶ')); エラーとなる
+
+		// 名前のある関数定義
+		function hello1(name){
+			return `${name}さん、こんにちは！`;
+		};
+
+		// 無名関数の定義
+		const hello2 = function(name){
+			return `${name}さん、こんにちは！`;
+		}
+
+		// アロー関数の定義(省略形)
+		const hello3 = name => `${name}さん、こんにちは！`;
+
+		console.log(hello1('たかのぶ'));
+		console.log(hello2('たかのぶ'));
+		console.log(hello3('たかのぶ'));
+
+		let obj = {
+			funk : hello1
+		};
+
+		let array = [hello1,1,2];
+
+		// オブジェクト内の関数の実行方法
+		console.log(obj.funk('たかのぶ'));
+		// 配列内の関数の実行方法
+		console.log(array[0]('たかのぶ'));
+	</script>
+</body>
+</html>
