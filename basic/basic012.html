@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<input type="text" id="num1">
+		<input type="text" id="num2">
+	</div>
+	<button type="button" id="button-add">+</button>
+	<button type="button" id="button-sub">-</button>
+	<button type="button" id="button-mul">*</button>
+	<button type="button" id="button-div">/</button>
+	<div id="box"></div>
+
+	<script>
+		const getNum1 = () =>{
+			return parseInt(document.getElementById('num1').value);
+		};
+
+		const getNum2 = () =>{
+			return parseInt(document.getElementById('num2').value);
+		};
+
+		const showResult = (num) =>{
+			document.getElementById('box').textContent = num;
+		};
+
+		let btn1 = document.getElementById('button-add');
+		let btn2 = document.getElementById('button-sub');
+		let btn3 = document.getElementById('button-mul');
+		let btn4 = document.getElementById('button-div');
+
+		// +ボタンの処理
+		btn1.addEventListener('click',()=>{
+			const result = getNum1() + getNum2();
+			showResult(result);
+		});
+		// -ボタンの処理
+		btn2.addEventListener('click',()=>{
+			const result = getNum1() - getNum2();
+			showResult(result);
+		});
+		// *ボタンの処理
+		btn3.addEventListener('click',()=>{
+			const result = getNum1() * getNum2();
+			showResult(result);
+		});
+		// /ボタンの処理
+		btn4.addEventListener('click',()=>{
+			const result = getNum1() / getNum2();
+			showResult(result);
+		});
+	</script>
+</body>
+</html>
