@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 関数定義
+		const animal = type =>{
+
+			if(type === 'dog'){
+				return '犬です';
+			};
+
+			if(type === 'cat'){
+				return '猫です';
+			}
+
+			// 犬でも猫でもないので、単純に返します
+			return '犬でも猫でもありません';
+		};
+
+		console.log(animal('dog'));
+		console.log(animal('cat'));
+		console.log(animal('elephant'));
+
+	</script>
+</body>
+</html>
