@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function add(num1, num2) {
+			return num1 + num2;
+		};
+
+		function judg(num1, num2) {
+			let addNum = add(num1, num2);
+			if (addNum % 2 === 0) {
+				return `${num1}と${num2}の和は${addNum}で、偶数です`;
+			}
+				return `${num1}と${num2}の和は${addNum}で、奇数です`;
+		};
+
+		console.log(judg(1, 2));
+		console.log(judg(1, 1));
+	</script>
+</body>
+
+</html>
