@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// 関数定義
+		function add(num1, num2) {
+			return `${num1}+${num2}=${num1 + num2}`;
+		};
+		function sub(num1, num2) {
+			return `${num1}-${num2}=${num1 - num2}`;
+		};
+		function multi(num1, num2) {
+			return `${num1}×${num2}=${num1 * num2}`;
+		};
+		function division(num1, num2) {
+			return `${num1}÷${num2}=${num1 / num2}`;
+		};
+
+		// 関数を要素にした配列と空の配列の用意
+		const funkArray = [add, sub, multi, division];
+		const resultArray = [];
+
+		const a = 3;
+		const b = 1;
+
+		for (let i = 0; i < funkArray.length; i++) {
+			// 空の配列に結果を代入
+			resultArray[i] = funkArray[i](a, b);
+
+			// 配列の関数を全て実行し終わったら
+			if(i === funkArray.length-1){
+				// 結果を代入した配列をconsole.logで表示する
+				for(let result of resultArray){
+					console.log(result);
+				}
+			}
+		};
+
+	</script>
+</body>
+
+</html>
