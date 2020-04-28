@@ -1,0 +1,41 @@
+!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		let total = 0;
+		const max= 200;
+
+
+		for (let i = 1; i <= 9; i++) { // ここが外側のfor
+
+			for (let j = 1; j <= 9; j++) { // ここが内側のfor
+
+				// 積が3の倍数になったら処理をスキップ
+				if (i * j % 3 === 0) { continue }
+
+				let result = i * j;
+				total += result;
+				console.log(`${i}×${j}=${result}`);
+				// 積の合計が200を超えたら、内側のforの処理を終了
+				if (total > max) { break }
+			};
+
+			// ラベル構文を使っていない為、外側のforの終了処理を行う
+			if (total > max) {
+				console.log(`積の合計が${max}を超えて${total}になったので終了します`);
+				break;
+			};
+
+		};
+
+	</script>
+</body>
+
+</html>
