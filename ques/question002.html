@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		const funk = (type = '') => { // 引数のデフォルト値に空白を指定
+			if (type === '') {
+				return '引数が設定されていません';
+			};
+
+			let judgType = typeof type;
+
+			if (judgType === 'number') {
+				return '引数は数値です';
+			};
+
+			if (judgType === 'string') {
+				if (!isNaN(type)) {
+					return '引数は文字列ですが、数値に変換が可能です';
+				};
+
+				return '引数は文字列で、数値に変換はできません';
+			};
+
+			if (judgType === 'function') {
+				return '引数は関数です';
+			};
+		};
+
+		console.log(funk());
+		console.log(funk(1));
+		console.log(funk('1'));
+		console.log(funk('あいうえお'));
+		console.log(funk(funk));
+
+	</script>
+</body>
+
+</html>
