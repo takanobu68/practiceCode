@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		const rockPaperScissors = (playerChoice = '') => {
+
+			if (playerChoice === '') {
+				return 'GU,CHOKI,PAのいずれかを引数に設定してください';
+			};
+
+			const computer = () => {
+				let randomNum = Math.floor(Math.random() * 3 + 1);
+				switch (randomNum) {
+					case 1:
+						return 'GU';
+						break;
+					case 2:
+						return 'CHOKI';
+						break;
+					case 3:
+						return 'PA';
+						break;
+				};
+				// if文での制作例
+				// if (randomNum === 1) {
+				// 	return 'GU';
+				// };
+				// if (randomNum === 2) {
+				// 	return 'CHOKI';
+				// };
+				// if (randomNum === 3) {
+				// 	return 'PA';
+				// };
+			};
+
+			const computerChoice = computer();
+
+			if (playerChoice === computerChoice) {
+				return 'あいこです';
+			};
+
+			if ((playerChoice === 'GU' && computerChoice === 'CHOKI')
+				|| (playerChoice === 'CHOKI' && computerChoice === 'PA')
+				|| (playerChoice === 'PA' && computerChoice === 'GU')) {
+				return 'あなたの勝ち！！';
+			}
+
+			return '負けました';
+		};
+
+		console.log(rockPaperScissors('GU'));
+		console.log(rockPaperScissors());
+
+	</script>
+</body>
+
+</html>
