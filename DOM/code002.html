@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body{
+			font-size: 22px;
+			width: 50%;
+			margin: 400px auto;
+		}
+
+		button {
+			padding: 10px;
+			display: block;
+			margin: 0 auto;
+		}
+
+		span{
+			font-size: 30px;
+		}
+		h1 {
+			opacity: 0;
+			text-align: center;
+		}
+
+		.appear {
+			opacity: 1;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h1 id="h1">クリックすると文字の色が変わります</h1>
+	<button id="btn"><span>文字が出てきます</span></button>
+
+	<script>
+		const btn = document.getElementById('btn');
+		const h1 = document.getElementById('h1');
+		const colorAry = ['black','red','blue','yellow'];
+
+		btn.addEventListener('click', () => {
+			h1.classList.add('appear');
+		});
+
+		h1.addEventListener('click', () => {
+			if (getComputedStyle(h1).opacity === '1') {
+				setInterval(changeColor,3000);
+			};
+		});
+
+		const changeColor = ()=>{
+			let colorAry = [];
+			let i = 0;
+			while(i<3){
+				const num = Math.floor(Math.random()*256);
+				colorAry.push(num);
+				i++;
+			}
+			h1.style.color = `rgb(${colorAry[0]},${colorAry[1]},${colorAry[2]})`;
+		}
+
+
+	</script>
+</body>
+
+</html>
