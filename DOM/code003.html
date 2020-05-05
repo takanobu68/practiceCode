@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		form {
+			margin-top: 300px;
+			text-align: center;
+		}
+		input{
+			padding: 30px;
+			font-size: 24px;
+			text-align: center;
+		}
+		p {
+			text-align: center;
+			font-size: 24px;
+		}
+
+		span {
+			display: block;
+			color: red;
+			font-size: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="" autocomplete="off">
+		<input type="text" id="text" oninput="output()">
+		<span id="caution" autocomplete="off"></span>
+	</form>
+	<p id="p"></p>
+
+	<script>
+		const text = document.getElementById('text');
+		const p = document.getElementById('p');
+		const caution = document.getElementById('caution');
+
+		// イベントリスナの設定
+		text.addEventListener('input', () => {
+			p.textContent = text.value;
+		});
+
+		// イベントをinputで設定した時の空白時のエラーメッセージ方法
+		// blurは「フォーカスが外れた時」というイベント
+		text.addEventListener('blur', () => {
+			if (text.value === '') {
+				caution.textContent = '※何か入力してください';
+			} else {
+				caution.textContent = '';
+			}
+		});
+
+		// イベントハンドラでの設定
+		// const output = () => {
+		// 	p.textContent = text.value;
+		// }
+	</script>
+</body>
+
+</html>
