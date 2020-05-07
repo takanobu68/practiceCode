@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			text-align: center;
+			margin-top: 400px;
+		}
+
+		input {
+			width: 30px;
+			height: 30px;
+		}
+
+		span {
+			font-size: 30px
+		}
+
+		#dp{
+			height: 30px;
+			font-size: 30px;
+		}
+
+		#alldp{
+			font-size: 30px;
+		}
+
+		.wrapper{
+			margin-top: 20px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="dp"></div>
+	<div class="wrapper">
+		<input type="checkbox" name="single" value="A"><span>A</span>
+		<input type="checkbox" name="single" value="B"><span>B</span>
+		<input type="checkbox" name="single" value="C"><span>C</span>
+		<input type="checkbox" name="single" value="D"><span>D</span>
+		<input type="checkbox" name="single" value="E"><span>E</span>
+	</div>
+	<hr>
+	<input type="checkbox" name="" id="allCheck"><span>ALL</span>
+	<div id="alldp"></div>
+	<script>
+
+		const dp = document.getElementById('dp');
+		const all = document.getElementsByName('single');
+		const allCheck = document.getElementById('allCheck');
+		const alldp = document.getElementById('alldp');
+
+		for (const each of all) {
+			each.addEventListener('change', () => {
+				if (each.checked) {
+					dp.textContent = `${each.value}が選択されました`;
+				} else {
+					dp.textContent = '';
+				}
+			})
+		};
+
+		allCheck.addEventListener('change', () => {
+			if (allCheck.checked) {
+				for (let i = 0; i < all.length; i++) {
+					all[i].checked = true;
+					alldp.textContent = '全て選択しました';
+				}
+			} else {
+				for (let i = 0; i < all.length; i++) {
+					all[i].checked = false;
+					alldp.textContent = '全ての選択を解除しました';
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
