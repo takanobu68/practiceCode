@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body{
+			display: flex;
+			justify-content: center;
+		}
+		.container{
+			margin-top: 300px;
+			margin-right: 100px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h2>順番に画像を表示</h2>
+		<img src="animal1.png" alt="動物" id="photo1" width="420" height="350"><br>
+		<button id="btn1">画像を変えます</button>
+	</div>
+
+	<div class="container">
+		<h2>ランダムに画像を表示</h2>
+		<img src="animal1.png" alt="動物" id="photo2" width="420" height="350"><br>
+		<button id="btn2">画像を変えます</button>
+	</div>
+
+	<script>
+
+		const photo1 = document.getElementById('photo1');
+		const photo2 = document.getElementById('photo2');
+		const btn1 = document.getElementById('btn1');
+		const btn2 = document.getElementById('btn2');
+		let count = 1;
+
+		btn1.addEventListener('click',()=>{
+			count++;
+			if(count > 4){
+				count = 1;
+			}
+			photo1.setAttribute('src',`animal${count}.png`);
+		});
+
+		btn2.addEventListener('click',()=>{
+			const num = Math.floor(Math.random()*4+1);
+			photo2.setAttribute('src',`animal${num}.png`);
+		});
+
+
+	</script>
+
+</body>
+
+</html>
