@@ -26,7 +26,6 @@
 		<img src="animal1.png" alt="動物" id="img" width="420" height="350"><br>
 	</div>
 
-
 	<script>
 		const imageArray = [
 			{ img: "animal1.png" },
@@ -38,7 +37,7 @@
 		const img = document.getElementById('img');
 		let count = 0;
 
-		const changeImage = function () {
+		const changeImage = () => {
 			count < imageArray.length - 1 ? count++ : count = 0;
 			img.src = imageArray[count].img;
 		};
@@ -50,10 +49,6 @@
 				clearInterval(changeStart);
 			});
 		});
-
-
-
-
 	</script>
 
 </body>
