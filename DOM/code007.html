@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		.container {
+			margin-top: 300px;
+			margin-right: 100px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h2>カーソルをのせると画像が変わっていきます</h2>
+		<img src="animal1.png" alt="動物" id="img" width="420" height="350"><br>
+	</div>
+
+
+	<script>
+		const imageArray = [
+			{ img: "animal1.png" },
+			{ img: "animal2.png" },
+			{ img: "animal3.png" },
+			{ img: "animal4.png" }
+		];
+
+		const img = document.getElementById('img');
+		let count = 0;
+
+		const changeImage = function () {
+			count < imageArray.length - 1 ? count++ : count = 0;
+			img.src = imageArray[count].img;
+		};
+
+		img.addEventListener('mouseenter', () => {
+			const changeStart = setInterval(changeImage, 1000);
+
+			img.addEventListener('mouseleave', () => {
+				clearInterval(changeStart);
+			});
+		});
+
+
+
+
+	</script>
+
+</body>
+
+</html>
