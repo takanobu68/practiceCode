@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>問題</title>
+	<style>
+		h1 {
+			text-align: center;
+		}
+
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+			margin: 100px auto;
+		}
+
+		#apper {
+			display: block;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>小さな画像にポインタを合わせると、大きな画像が変わります</h1>
+
+	<main>
+		<div class="wrapper">
+			<img id="img" class="hover" src="animal1.png" alt="犬" width="100">
+			<img class="hover" src="animal2.png" alt="猫" width="100">
+			<img class="hover" src="animal3.png" alt="クマ" width="100">
+			<img class="hover" src="animal4.png" alt="ウサギ" width="100">
+		</div>
+		<img id="apper" src="init1.png" alt="変わる画像" width="500" height="500">
+
+	</main>
+
+	<script>
+		const img = document.querySelectorAll('.hover');
+		let apper = document.getElementsByTagName('img');
+		apper = apper[apper.length-1];
+
+		img.forEach(el => {
+			el.addEventListener('mouseenter', () => {
+				apper.src = el.src;
+			});
+			el.addEventListener('mouseleave', () => {
+				apper.src = "init1.png";
+			})
+		});
+	</script>
+
+</body>
+
+</html>
