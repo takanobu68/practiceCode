@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		const name = 'Takanobu';
+		const bloodType = 'A';
+
+		const status = {
+			name, // name : nameと同意
+			address: 'Kanagawa',
+			bloodType : bloodType,
+			age: 36,
+			myName(){
+				console.log(`My name is ${this.name}`);
+			},
+			living : function(){
+				console.log(`I live in ${this.address}`);
+			}
+		};
+
+		status.hobby = 'readingCode'; // プロパティの追加
+		delete status.bloodType; // プロパティの削除
+		console.log(status);
+		status.myName();
+		status.living();
+
+	</script>
+</body>
+
+</html>
