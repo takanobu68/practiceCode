@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			margin: 300px auto;
+			text-align: center;
+		}
+
+		button{
+			display: block;
+			margin: 20px auto;
+			font-size: 24px;
+		}
+
+		input{
+			width: 24px;
+			height: 24px;
+		}
+
+		span{
+			font-size: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<input type="checkbox" id="checkbox"><span>内容に同意します</span>
+		<button id="btn" disabled>送信</button>
+	</div>
+
+	<script>
+
+		const checkBox = document.getElementById('checkbox');
+		const btn = document.getElementById('btn');
+
+		checkBox.addEventListener('change', () => {
+			if (checkBox.checked) {
+				btn.disabled = false;
+			} else {
+				btn.disabled = true;
+			}
+		});
+
+		btn.addEventListener('click', () => {
+			alert('送信されました');
+		})
+	</script>
+</body>
+
+</html>
