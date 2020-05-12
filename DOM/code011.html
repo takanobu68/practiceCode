@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			margin: 300px auto;
+			text-align: center;
+		}
+
+		button{
+			display: block;
+			margin: 20px auto;
+			font-size: 24px;
+		}
+
+		input{
+			width: 24px;
+			height: 24px;
+		}
+
+		span{
+			font-size: 24px;
+		}
+
+		.invisible{
+			opacity: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<input type="checkbox" id="checkbox"><span>内容に同意します</span>
+		<button id="btn1">送信</button>
+		<button id="btn2" class="invisible">次に進む</button>
+	</div>
+
+	<script>
+
+		const checkBox = document.getElementById('checkbox');
+		const btn1 = document.getElementById('btn1');
+		const btn2 = document.getElementById('btn2');
+
+		btn1.addEventListener('click', () => {
+			 const check = checkBox.checked;
+			if(check === false){
+				alert('同意されていません');
+			}else{
+				alert('同意が確認できました');
+				btn2.classList.remove('invisible');
+			}
+		});
+
+		btn2.addEventListener('click',()=>{
+			const check = checkBox.checked;
+			if(check === false){
+				alert('同意されていません');
+			}else{
+				alert('次に進みます');
+			}
+		})
+
+
+
+	</script>
+</body>
+
+</html>
