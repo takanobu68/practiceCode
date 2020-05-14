@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			text-align: center;
+			margin-top: 300px;
+		}
+
+		.warn {
+			font-size: 24px;
+			color: red;
+		}
+
+		select {
+			width: 300px;
+			height: 230px;
+			font-size: 30px;
+		}
+
+		p{
+			font-size: 48px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<p>トッピングを選んでください</p>
+		<select id="select" multiple>
+			<option value="チャーシュー">チャーシュー</option>
+			<option value="味付け卵">味付け卵</option>
+			<option value="メンマ">メンマ</option>
+			<option value="ネギ">ネギ</option>
+			<option value="海苔">海苔</option>
+		</select>
+
+		<p id="p"></p>
+	</div>
+	<script>
+
+		const select = document.getElementById('select');
+
+		const p = document.getElementById('p')
+
+		// select.optionsの戻り値がHTMLOptionsCollectionなので配列に直す
+		const chosenList = [...select.options];
+
+		select.addEventListener('change', () => {
+
+			// 選択肢が全て選択状態であればtrueを返す式
+			// 一つでも選択されていなければfalseを返す everyメソッド使用
+			const result = chosenList.every(el => {
+				return el.selected;
+			});
+
+			if (result) {
+				return p.textContent = '太りますよ...'
+			}
+
+			// 選択状態を調べてselectedの場合のみ配列にpushする。reduceメソッド使用
+			// foeEachを使用の場合あらかじめ配列の用意が必要だが、
+			// reduceを使いselectされている物のみの配列を生成
+
+			const choices = chosenList.reduce((arr,cur)=>{
+			if(cur.selected){
+				arr.push(cur.value);
+			}
+			return arr;
+			},[]);
+
+			p.textContent = choices.join('と');
+		})
+	</script>
+</body>
+
+</html>
