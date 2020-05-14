@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			text-align: center;
+			margin-top: 500px;
+		}
+		.warn {
+			font-size: 64px;
+			color: red;
+		}
+		select{
+			width: 300px;
+			height: 50px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<select id="select">
+			<option value="" selected disabled>選択してください</option>
+			<option value="正社員">正社員</option>
+			<option value="アルバイト">アルバイト</option>
+			<option value="働いてください">無職</option>
+		</select>
+
+		<p id="p"></p>
+	</div>
+	<script>
+		const select = document.getElementById('select');
+		const p = document.getElementById('p')
+
+		select.addEventListener('change', () => {
+
+			if(p.classList.contains('warn')){
+				p.classList.remove('warn');
+			}
+
+			if (select.value === "働いてください") {
+				p.classList.add('warn');
+				return p.textContent = select.value;
+			}
+
+			p.textContent = `${select.value}を選択しました`;
+		});
+
+	</script>
+</body>
+
+</html>
