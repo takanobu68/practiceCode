@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+		.wrapper{
+			width: 50%;
+			margin: 300px auto;
+
+			text-align: center;
+		}
+
+		div{
+			font-size: 36px;
+		}
+
+		input{
+			padding: 15px;
+			display: block;
+			margin: 15px auto;
+			font-size: 24px;
+		}
+
+		img {
+			display: block;
+			margin: 0 auto;
+			width: 350px;
+			height: 350px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div><span id="num"></span></div>
+		<input type="number" id="answer"> 答えを入力してください
+		<img id="img" src="" alt="">
+	</div>
+
+	<script>
+
+		const randNum1 = Math.floor(Math.random() * 11);
+		const randNum2 = Math.floor(Math.random() * 11);
+		const result = randNum1 + randNum2;
+
+		const num = document.getElementById('num');
+		const answer = document.getElementById('answer');
+		const img = document.getElementById('img');
+
+		num.textContent = `${randNum1} + ${randNum2} =`;
+
+		answer.addEventListener('blur', () => {
+			Number(answer.value) === result
+				? img.setAttribute('src', 'atari.png')
+				: img.setAttribute('src', 'hazure.png');
+				answer.value = '';
+		});
+	</script>
+</body>
+
+</html>
