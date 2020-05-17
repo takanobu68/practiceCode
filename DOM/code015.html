@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			width: 80%;
+			margin: 300px auto;
+
+			text-align: center;
+		}
+
+		div {
+			font-size: 36px;
+		}
+
+		input {
+			padding: 15px;
+			display: block;
+			margin: 15px auto;
+			font-size: 24px;
+		}
+
+		#img {
+			display: block;
+			margin: 0 auto;
+			width: 350px;
+			height: 350px;
+		}
+
+		.dpn {
+			opacity: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div><span id="num"></span></div>
+			<input type="number" id="answer"> 三回連続で正解してください
+			<div id="dpn" class="dpn">
+				<img id="img" src=" " alt="">
+				<button id="btn"></button>
+			</div>
+		</div>
+	</div>
+	<script>
+
+		const setRandNum = () => {
+			randNum1 = Math.floor(Math.random() * 11);
+			randNum2 = Math.floor(Math.random() * 11);
+			result = randNum1 + randNum2;
+			document.getElementById('num').textContent = `${randNum1} + ${randNum2} =`;
+		}
+
+		const answer = document.getElementById('answer');
+		const dpn = document.getElementById('dpn');
+		const img = document.getElementById('img');
+		const btn = document.getElementById('btn');
+		const wrapper = document.getElementById('wrapper');
+
+		setRandNum();
+
+		let hitCount = 0;
+
+		answer.addEventListener('blur', () => {
+			dpn.classList.remove('dpn');
+			answer.disabled = true;
+
+			if (Number(answer.value) === result) {
+
+				hitCount++;
+
+				if (hitCount === 3) {
+					wrapper.firstElementChild.remove();
+					let finishing = document.createElement('img');
+					finishing.setAttribute('src', 'finishing.png');
+					wrapper.appendChild(finishing);
+					return;
+				}
+
+				img.setAttribute('src', 'atari.png');
+				btn.textContent = '次の問題へ';
+
+			} else {
+				img.setAttribute('src', 'hazure.png');
+				btn.textContent = '再挑戦';
+				hitCount = 0;
+			}
+			answer.value = '';
+		});
+
+		btn.addEventListener('click', () => {
+			answer.disabled = false;
+			setRandNum();
+			dpn.classList.add('dpn');
+			img.setAttribute('src', ' '); // この処理を行わないと前の画像の残像が残る
+		});
+
+	</script>
+</body>
+
+</html>
