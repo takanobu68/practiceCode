@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>残日数を表示</title>
+</head>
+
+<body>
+	<div>
+		<h2>誕生日までの日数を表示</h2>
+		<p>あと<span id="period"></span>日</p>
+	</div>
+
+
+	<script>
+		const today = new Date();
+
+		const birthDay = new Date(2020,5,8);
+
+		let period = birthDay.getTime() - today.getTime();
+
+		period = Math.floor(period / (24 * 60 * 60 * 1000));
+
+		document.getElementById("period").textContent = period;
+	</script>
+</body>
+
+</html>
