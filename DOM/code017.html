@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			text-align: center;
+			margin-top: 400px;
+		}
+
+		button{
+			width:150px;
+			height: 100px;
+			margin-right: 50px;
+			font-size: 36px;
+		}
+
+		p{
+			font-size: 36px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<button id="start">開始</button>
+		<button id="end" disabled="true">終了</button>
+		<p id="p"></p>
+	</div>
+	<script>
+		const start = document.getElementById('start');
+		const end = document.getElementById('end');
+		const p = document.getElementById('p');
+
+		start.addEventListener('click', () => {
+			// 有効ボタンの切り替え
+			start.disabled = true;
+			end.disabled = false;
+
+			startTime = new Date().getTime();
+			startSecondsTime = startTime / 1000;
+
+			p.textContent = '';
+		});
+
+		end.addEventListener('click', () => {
+			// 有効ボタンの切り替え
+			start.disabled = false;
+			end.disabled = true;
+
+			endTime = new Date().getTime();
+			endSecondsTime = endTime / 1000;
+
+			useSecondsTime = endSecondsTime - startSecondsTime;
+			p.textContent = `開始を押してから${Math.floor(useSecondsTime)}秒後に終了しました`;
+		});
+	</script>
+</body>
+
+</html>
